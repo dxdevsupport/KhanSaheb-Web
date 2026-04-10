@@ -1,0 +1,340 @@
+@import "@/styles/mixins";
+
+.newsSection {
+	overflow: hidden;
+	// padding-top: 50px;
+
+	// @include max(1024) {
+	//   padding-top: 30px;
+	// }
+
+	// @include max(600) {
+	//   padding-top: 10px;
+	// }
+}
+
+.newsHeader {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+	gap: 20px;
+	margin-bottom: 35px;
+
+	@include max(768) {
+		flex-direction: column;
+		gap: 30px;
+	}
+}
+.main_title {
+	margin-bottom: 25px;
+}
+.newsTitle {
+	max-width: 740px;
+}
+
+.newsDescription {
+	font-size: 16px;
+	line-height: 1.6;
+	color: #333333;
+	max-width: 600px;
+	margin: 0;
+
+	@include max(1440) {
+		font-size: 14px;
+	}
+}
+
+.sortDropdown {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	position: relative;
+	z-index: 90;
+}
+
+.sortButton {
+	padding: 12px 20px;
+	border: 1px solid #e40032;
+	background-color: #ffffff;
+	color: #e40032;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 1;
+	text-transform: uppercase;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	appearance: none;
+	background-image: url("/images/select_arw.svg");
+	background-repeat: no-repeat;
+	background-position: 75% 56%;
+	background-size: 16px;
+	padding-right: 40px;
+	min-width: 230px;
+	text-align: center;
+	font-family: "Madani Arabic Light";
+	//   &:hover {
+	//     background-color: #E40032;
+	//     color: #ffffff;
+	//     background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+	//   }
+
+	&:focus {
+		outline: none;
+	}
+
+	@include max(768) {
+		padding: 10px 16px;
+		padding-right: 36px;
+		font-size: 12px;
+		background-size: 14px;
+	}
+}
+
+.reactSelect {
+	min-width: 230px;
+	:global(.react-select__control) {
+		border: 1px solid #e40032;
+		border-radius: 0;
+		min-height: auto;
+		padding: 0;
+		box-shadow: none;
+		background-color: #ffffff;
+		background-image: url("/images/select_arw.svg");
+		background-repeat: no-repeat;
+		background-position: 80% 56%;
+		cursor: pointer;
+		&:hover {
+			border-color: #9ca3af;
+		}
+
+		&:global(.react-select__control--is-focused) {
+			border-color: #e40032;
+		}
+	}
+
+	:global(.react-select__value-container) {
+		padding: 12px 16px;
+	}
+
+	:global(.react-select__single-value) {
+		color: #e40032;
+		font-size: 14px;
+		line-height: 100%;
+		font-weight: 500;
+		text-transform: uppercase;
+		font-family: "Madani Arabic Light";
+		text-align: left;
+	}
+
+	:global(.react-select__indicator-separator) {
+		display: none;
+	}
+	:global(.css-1wy0on6) {
+		display: none;
+	}
+
+	:global(.react-select__dropdown-indicator) {
+		display: none; // Hide default arrow since you're using background image
+	}
+
+	:global(.react-select__menu) {
+		border: 1px solid #e40032;
+		border-radius: 0;
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+		margin-top: 2px;
+		background-color: #ffffff;
+		z-index: 1000;
+	}
+
+	:global(.react-select__option) {
+		color: #e40032;
+		font-size: 14px;
+		font-weight: 400;
+		text-transform: uppercase;
+		font-family: "Madani Arabic Light";
+		padding: 12px 16px;
+		text-align: center;
+		background-color: #ffffff;
+		cursor: pointer;
+		&:hover {
+			background-color: #e40032;
+			color: #fff;
+		}
+
+		&:global(.react-select__option--is-selected) {
+			background-color: #f8f9fa;
+			color: #e40032;
+			font-weight: 600;
+		}
+	}
+
+	// Additional react-select classes you might need:
+	:global(.react-select__placeholder) {
+		color: #9ca3af;
+		font-size: 14px;
+		font-weight: 400;
+		text-transform: uppercase;
+		font-family: "Madani Arabic Light";
+		text-align: center;
+	}
+
+	:global(.react-select__input-container) {
+		color: #e40032;
+		font-size: 14px;
+		font-weight: 400;
+		text-transform: uppercase;
+		font-family: "Madani Arabic Light";
+	}
+
+	:global(.react-select__menu-list) {
+		padding: 0;
+	}
+
+	:global(.react-select__menu-notice) {
+		color: #6b7280;
+		font-size: 14px;
+		font-family: "Madani Arabic Light";
+		text-align: center;
+		padding: 12px 16px;
+	}
+
+	@include max(1024) {
+		min-width: 180px;
+
+		:global(.react-select__control) {
+			background-position: 85% 56%;
+			background-size: 12px;
+		}
+
+		:global(.react-select__value-container) {
+			padding: 10px 14px;
+		}
+
+		:global(.react-select__single-value) {
+			font-size: 12px;
+		}
+
+		:global(.react-select__option) {
+			font-size: 9px !important;
+			padding: 8px 12px;
+		}
+
+		:global(.react-select__placeholder) {
+			font-size: 12px;
+		}
+
+		:global(.react-select__input-container) {
+			font-size: 12px;
+		}
+
+		:global(.react-select__menu-notice) {
+			font-size: 12px;
+			padding: 10px 14px;
+		}
+
+		:global(.react-select__menu-list) {
+			:global(.react-select__option) {
+				font-size: 9px !important;
+			}
+		}
+	}
+}
+
+.newsGrid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 45px 22px;
+
+	@include max(1024) {
+		grid-template-columns: repeat(2, 1fr);
+		gap: 24px;
+	}
+
+	@include max(768) {
+		grid-template-columns: 1fr;
+		gap: 20px;
+	}
+}
+
+.awardGrid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 22px;
+
+	@include max(1440) {
+		gap: 20px;
+	}
+
+	@include max(1024) {
+		grid-template-columns: repeat(2, 1fr);
+		gap: 18px;
+	}
+
+	@include max(768) {
+		grid-template-columns: 1fr;
+		gap: 15px;
+	}
+}
+
+.noResultsMessage {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 60px 20px;
+	text-align: center;
+
+	p {
+		font-size: 18px;
+		color: #666;
+		margin: 0;
+		font-weight: 400;
+
+		@include max(768) {
+			font-size: 16px;
+		}
+	}
+
+	@include max(768) {
+		padding: 40px 20px;
+	}
+}
+
+.loadMoreSection {
+	display: flex;
+	justify-content: center;
+	margin-top: 60px;
+
+	@include max(820) {
+		margin-top: 40px;
+		padding: 0;
+	}
+}
+
+.loadMoreButton {
+	border: none;
+	cursor: pointer;
+	&:hover:not(:disabled) {
+		background-color: #c7002a;
+		transform: translateY(-2px);
+		box-shadow: 0 4px 12px rgba(228, 0, 50, 0.3);
+	}
+
+	&:disabled {
+		background-color: #cccccc;
+		cursor: not-allowed;
+		transform: none;
+		box-shadow: none;
+	}
+}
+
+.newsGridSection {
+	padding-bottom: 80px;
+
+	@include max(1440) {
+		padding-bottom: 60px;
+	}
+
+	@include max(820) {
+		padding-bottom: 40px;
+	}
+}

@@ -1,0 +1,150 @@
+@import "@/styles/mixins";
+
+.projectDataWrapper {
+  width: 100%;
+
+}
+
+.projectDataContainer {
+  width: 100%;
+}
+
+.projectTitle {
+  color: var(--red);
+  font-family: "Madani Arabic Semi", sans-serif;
+  font-size: 50px;
+  line-height: 60px;
+  margin-bottom: 30px;
+  font-weight: 600;
+
+  @include max(1024) {
+    font-size: 40px;
+    line-height: 50px;
+    margin-bottom: 25px;
+  }
+
+  @include max(768) {
+    font-size: 32px;
+    line-height: 40px;
+    margin-bottom: 20px;
+  }
+
+  @include max(480) {
+    font-size: 28px;
+    line-height: 36px;
+    margin-bottom: 15px;
+  }
+}
+
+.contentGrid {
+  display: grid;
+  grid-template-columns: 1fr 350px;
+  gap: 58px;
+  align-items: stretch;
+  margin-top: 30px;
+
+  @include max(1200) {
+    grid-template-columns: 1fr 300px;
+    gap: 42px;
+  }
+
+  @include max(1024) {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    align-items: start;
+  }
+
+  @include max(480) {
+    margin-top: 20px;
+  }
+}
+
+.imageSection {
+  width: 100%;
+  // margin-top: 15px;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+
+  @include max(768) {
+    aspect-ratio: 16 / 11;
+  }
+
+  @include max(480) {
+    aspect-ratio: 4 / 3;
+  }
+}
+
+.projectImage {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.detailsSection {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  border-left: 1px solid rgba(34, 36, 35, 1);
+  padding-left: 28px;
+  height: 100%;
+  transition: border-color 0.1s linear;
+
+  @include max(1024) {
+    display: grid;
+    grid-template-columns:1fr;
+    gap: 25px 40px;
+    padding-top: 0px;
+    padding-left:15px;
+    height: auto;
+  }
+
+  @include max(768) {
+    gap: 15px;
+  }
+
+}
+
+.detailItem {
+  display: flex;
+  flex-direction: column;
+
+   @include max(1024) {
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+
+   }
+}
+
+.detailLabel {
+  font-size: 14px;
+  line-height: 20px;
+  color: #666;
+  font-weight: 400;
+  margin: 0;
+}
+
+.detailValue {
+  font-size: 33px;
+  line-height: 1.2;
+  color: #000000;
+  font-weight: 400;
+  margin: 0;
+
+  @include max(1440) {
+    font-size: 28px;
+  }
+
+  @include max(1024) {
+    font-size: 22px;
+  }
+
+    @include max(768) {
+      font-size: 16px;
+    }
+}

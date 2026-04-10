@@ -1,0 +1,607 @@
+@import "@/styles/mixins";
+@import "@/styles/variable";
+
+.awardCard {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  background: #000;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.imageContainer {
+  position: relative;
+  width: 100%;
+  height: 312px;
+  overflow: hidden;
+}
+
+.awardImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%);
+  transition: filter 0.3s ease;
+
+  .awardCard:hover & {
+    filter: grayscale(0%);
+  }
+}
+
+.greenAccent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-right: 70px solid transparent;
+  border-top: 70px solid #00c48d;
+  z-index: 2;
+}
+
+.textOverlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+  padding: 20px;
+  color: white;
+  z-index: 1;
+}
+
+.awardTitle {
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 34px;
+  margin: 0;
+  color: #ffffff;
+  max-width: 390px;
+
+  @include max(768) {
+    font-size: 14px;
+  }
+}
+
+.awardDate {
+  font-size: 14px;
+  font-weight: 400;
+  margin: 0;
+  color: #00c851;
+  font-family: "Madani Arabic";
+
+  @include max(768) {
+    font-size: 12px;
+  }
+}
+
+// Popup Styles
+.popupOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 20px;
+  animation: fadeIn 0.3s ease;
+  backdrop-filter: blur(4px);
+  overflow: hidden;
+  overscroll-behavior: contain;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.popupContent {
+  position: relative;
+  background: white;
+  max-width: 980px;
+  width: 100%;
+  max-height: 90vh;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  animation: slideIn 0.3s ease;
+  transform-origin: center;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  padding: 60px 27px 50px 27px;
+  overscroll-behavior: contain;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.closeButton {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  z-index: 10;
+  color: white;
+  transition: background 0.3s ease;
+
+  svg path {
+    stroke: #000000;
+  }
+}
+
+.mainImageContainer {
+  position: relative;
+  width: 100%;
+  min-height: 513px;
+  height: 513px;
+  overflow: hidden;
+  flex-shrink: 0;
+
+  @include max(1440) {
+    min-height: 400px;
+    height: 400px;
+  }
+
+  @include max(768) {
+    min-height: 340px;
+    height: 340px;
+  }
+
+  @include max(480) {
+    min-height: 250px;
+    height: 250px;
+  }
+}
+
+.mainImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+.imageTextOverlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+  padding: 30px 30px 50px 55px;
+  color: white;
+
+   @include max(768) {
+    padding:20px;
+   }
+}
+
+.popupTitle {
+  font-size: 25px;
+  font-weight: 500;
+  line-height: 31px;
+  margin: 0 0 5px 0;
+  color: rgba(255, 255, 255, 0.8);
+
+  @include max(768) {
+    font-size: 18px;
+  }
+}
+
+.popupDescription {
+  font-size: 16px;
+  line-height: 1.4;
+  margin: 0 0 10px 0;
+  color: #e0e0e0;
+
+  @include max(1440px) {
+    font-size: 14px;
+  }
+}
+
+.popupDate {
+  font-size: 16px;
+  font-weight: 300;
+  color: #00c48d;
+}
+
+.thumbnailGallery {
+  padding: 20px 0;
+  position: relative;
+  overflow: visible;
+}
+
+.thumbnailSwiper {
+  width: 100%;
+  height: auto;
+
+  .swiper-slide {
+    width: auto;
+    flex-shrink: 0;
+  }
+}
+
+.swiperSlide {
+  width: auto;
+  flex-shrink: 0;
+}
+
+.thumbnail {
+  position: relative;
+  flex-shrink: 0;
+  width: 138px;
+  height: 138px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  margin-right: 10px;
+
+  &:hover {
+    border-color: #00c851;
+  }
+
+  &.activeThumbnail {
+    border-color: #00c851;
+  }
+}
+
+.thumbnailImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.activeIndicator {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  background: #00c851;
+  color: white;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.scrollIndicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 80px;
+  background: #00c851;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 0.3s ease;
+
+  &:hover {
+    background: #00a041;
+  }
+}
+
+.navigationButtons {
+  position: absolute;
+  bottom: 105px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  width: 93%;
+  margin: 0 auto;
+  pointer-events: none;
+}
+
+.navButton {
+  background: #e40032;
+  border: none;
+  border-radius: 50%;
+  width: 19px;
+  height: 19px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: white;
+  transition: all 0.3s ease;
+  pointer-events: all;
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.7);
+    transform: scale(1.1);
+  }
+
+  &:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+}
+
+// Swiper Navigation Buttons
+.thumbnailGallery {
+  :global(.swiper-button-prev) {
+    position: absolute !important;
+    top: 50% !important;
+    left: 10px !important;
+    transform: translateY(-50%) !important;
+    width: 19px !important;
+    height: 19px !important;
+    background: #e40032 !important;
+    border-radius: 50% !important;
+    color: white !important;
+    border: none !important;
+    cursor: pointer !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: all 0.3s ease !important;
+    z-index: 1000 !important;
+    margin-top: 0 !important;
+
+    &:hover {
+      background: #00c48d !important;
+      transform: translateY(-50%) scale(1.1) !important;
+    }
+
+    &:after {
+      font-size: 7px !important;
+      font-weight: bold !important;
+    }
+  }
+
+  :global(.swiper-button-next) {
+    position: absolute !important;
+    top: 50% !important;
+    right: 5px !important;
+    transform: translateY(-50%) !important;
+    width: 19px !important;
+    height: 19px !important;
+    background: #e40032 !important;
+    border-radius: 50% !important;
+    color: white !important;
+    border: none !important;
+    cursor: pointer !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: all 0.3s ease !important;
+    z-index: 1000 !important;
+    margin-top: 0 !important;
+
+    &:hover {
+      background: #00c48d !important;
+      transform: translateY(-50%) scale(1.1) !important;
+    }
+
+    &:after {
+      font-size: 7px !important;
+      font-weight: bold !important;
+    }
+  }
+
+  :global(.swiper-button-disabled) {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+}
+// Responsive Design
+@include max(768) {
+  .popupContent {
+    margin: 10px;
+  }
+
+  .thumbnailGallery {
+    padding: 15px;
+  }
+
+  .thumbnail {
+    width: 80px;
+    height: 60px;
+  }
+
+  .scrollIndicator {
+    width: 30px;
+    height: 60px;
+  }
+}
+
+.award_list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-top: 30px;
+  padding: 0 30px;
+  overflow-y: auto;
+  flex: 1;
+  min-height: 0;
+
+  @include max(768) {
+    padding: 0 15px;
+  }
+}
+
+.award_item {
+  border-bottom: 1px solid #e5e5e5;
+  padding: 20px 0;
+
+  &:first-child {
+    padding-top: 0;
+  }
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  @include max(768) {
+    padding: 15px 0;
+  }
+}
+
+.award_item_title {
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1.4;
+  margin: 0 0 10px 0;
+  color: #222423;
+
+  @include max(768) {
+    font-size: 16px;
+    margin: 0 0 8px 0;
+  }
+}
+
+.award_item_description {
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 0 0 8px 0;
+  color: #222423;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  @include max(1440px) {
+    font-size: 14px;
+  }
+}
+
+// New styles for dynamic WordPress content
+.award_content {
+  margin-top: 30px;
+  padding: 0 30px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  flex: 1;
+  min-height: 0;
+  max-height: 100%;
+  // Smooth scrolling
+  scroll-behavior: smooth;
+  // Prevent scroll chaining to parent
+  overscroll-behavior: contain;
+  // Hide scrollbar by default
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 4px;
+    transition: background 0.3s ease;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: transparent;
+    border-radius: 4px;
+    transition: background 0.3s ease;
+  }
+
+  // Show scrollbar only when actively scrolling
+  &.is_scrolling {
+    &::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: #00c48d;
+
+      &:hover {
+        background: #00a041;
+      }
+    }
+  }
+
+  @include max(768) {
+    padding: 0px;
+    margin-top: 20px;
+  }
+}
+
+.award_description {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #222423;
+
+  p {
+    margin: 0 0 15px 0;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  strong {
+    font-family: "Madani Semi Bold";
+    font-weight:400;
+    color: #222423;
+    display: block;
+    margin-bottom: 10px;
+    font-size: 17px;
+  }
+
+  ul,
+  ol {
+    margin: 15px 0;
+    padding-left: 25px;
+
+    li {
+      margin-bottom: 8px;
+    }
+  }
+
+  a {
+    color: #00c48d;
+    text-decoration: underline;
+    transition: opacity 0.3s ease;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  @include max(1440px) {
+    font-size: 15px;
+
+    strong {
+      font-size: 16px;
+    }
+  }
+
+  @include max(768) {
+    font-size: 14px;
+
+    strong {
+      font-size: 15px;
+    }
+
+    p {
+      margin: 0 0 12px 0;
+    }
+  }
+}

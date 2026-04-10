@@ -1,0 +1,155 @@
+@import "@/styles/mixins";
+
+.industryStandards {
+  position: relative;
+  height: 898px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  overflow: hidden;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+
+  @include max(1024){
+    background-attachment: scroll;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #0000001a;
+    z-index: 1;
+  }
+
+  @include max(1440) {
+    height: 640px;
+  }
+
+  @include max(820) {
+    height: auto;
+    padding: 40px 0px 30px;
+  }
+}
+
+.backgroundImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 140%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 1;
+  transition: transform 0.1s ease-out;
+  transform-origin: center center;
+  &.scrolled {
+    transform: scale(1.2);
+  }
+
+  @include max(768) {
+    height: 160%;
+  }
+}
+
+.redTriangle {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-left: 200px solid transparent;
+  border-top: 200px solid rgba(220, 38, 38, 0.6);
+  z-index: 2;
+
+  @include max(1024) {
+    border-left: 150px solid transparent;
+    border-top: 150px solid rgba(220, 38, 38, 0.6);
+  }
+
+  @include max(768) {
+    border-left: 80px solid transparent;
+    border-top: 80px solid rgba(220, 38, 38, 0.6);
+  }
+}
+
+.contentContainer {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+}
+
+.contentBox {
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 0;
+  padding: 62px 80px;
+  display: flex;
+  gap: 3%;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+
+  @include max(1440) {
+    padding: 45px 60px;
+  }
+
+  @include max(1024) {
+    flex-direction: column;
+    gap: 25px;
+    padding: 40px;
+  }
+}
+
+.leftContent {
+  flex: 0 0 32%;
+
+  @include max(1024) {
+    flex: none;
+  }
+}
+
+.title {
+  font-size: 50px;
+  font-weight: 500;
+  color: #ffffff;
+  line-height: 1.2;
+  margin: 0;
+
+  @include max(1440) {
+    font-size: 44px;
+  }
+
+  @include max(768) {
+    font-size: 32px;
+  }
+}
+
+.rightContent {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 48%;
+
+  @include max(1024) {
+    width: 100%;
+  }
+}
+
+.paragraph p{
+  font-size: 16px;
+  line-height: 1.6;
+  color: #ffffff;
+  margin-bottom:10px;
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  @include max(1440) {
+    font-size: 14px;
+  }
+}

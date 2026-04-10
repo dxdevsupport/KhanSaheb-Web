@@ -1,0 +1,517 @@
+@import "@/styles/mixins";
+@import "@/styles/variable";
+
+.teamCard {
+  background: #ffffff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  cursor: pointer;
+}
+
+.cardImage {
+  position: relative;
+  width: 100%;
+  height: 514px;
+  background: #d9d9d9;
+  overflow: hidden;
+
+  .memberImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  &:hover .memberImage {
+    transform: scale(1.05);
+  }
+}
+
+.cardFooter {
+  background: #e4002b;
+  padding: 38px 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  bottom: 15px;
+  width: 93%;
+  left: 0;
+  margin: 0 auto;
+  right: 0;
+  p {
+    color: #ffffff;
+    margin-bottom: 0px;
+    line-height: 1;
+  }
+}
+
+.memberInfo {
+  flex: 1;
+  padding-right: 10px;
+
+  @include max(768) {
+    padding-right: 5px;
+  }
+
+  .memberName {
+    font-size: 18px;
+    font-weight: 500;
+    color: #ffffff;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 8px;
+  }
+}
+
+.arrowIcon {
+  width: 30px;
+  height: 30px;
+  background: #fff;
+  // border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.3s ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.3);
+  }
+
+  svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+// Popup Modal Styles
+.popupOverlay {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 100vw !important;
+  height: 100dvh !important;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999 !important;
+  padding: 20px;
+  animation: fadeIn 0.3s ease;
+  margin: 0 !important;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  overflow: hidden;
+  touch-action: none;
+
+  @include max(768) {
+    align-items: flex-start;
+    padding: 10px;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-y;
+  }
+}
+
+// Global body scroll prevention when popup is open
+// Note: This is handled in JavaScript instead of CSS
+
+.popupContent {
+  background: #ffffff;
+  border-radius: 0;
+  max-width: 1100px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  animation: slideIn 0.3s ease;
+  box-shadow: 0 10px 50px rgba(0, 0, 0, 0.2);
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y;
+  display: flex;
+  flex-direction: column;
+  overscroll-behavior: contain;
+
+  // Hide scrollbar on desktop (above 768px)
+  scrollbar-width: none; // Firefox
+  -ms-overflow-style: none; // IE and Edge
+
+  &::-webkit-scrollbar {
+    display: none; // Chrome, Safari, Opera
+  }
+
+  @include max(768) {
+    max-height: calc(100vh - 20px);
+    min-height: auto;
+    height: auto;
+    margin: auto;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-y;
+    overscroll-behavior: contain;
+
+    // Show scrollbar on mobile (768px and below)
+    scrollbar-width: thin; // Firefox
+    -ms-overflow-style: auto; // IE and Edge
+
+    &::-webkit-scrollbar {
+      display: block; // Chrome, Safari, Opera
+      width: 6px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 3px;
+
+      &:hover {
+        background: rgba(0, 0, 0, 0.3);
+      }
+    }
+  }
+}
+
+.closeButton {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  background: transparent;
+  border: none;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: opacity 0.3s ease;
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  svg {
+    width: 24px;
+    height: 24px;
+
+    path {
+      stroke: #000000;
+      stroke-width: 2;
+    }
+  }
+}
+
+.popupHeader {
+  display: flex;
+  align-items: flex-start;
+  padding: 90px 80px;
+  border-bottom: none;
+  gap: 45px;
+  flex-shrink: 0;
+}
+
+.popupHeaderLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+
+.popupImage {
+  flex-shrink: 0;
+  width: 320px;
+  height: 360px;
+  background: #fff;
+
+  .popupMemberImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.popupInfo {
+  flex: 1;
+  padding-top: 20px;
+
+  .popupName {
+    font-size: 24px;
+    line-height: 25px;
+    font-weight: 400;
+    color: #e40032;
+    margin: 0 0 5px 0;
+    text-transform: uppercase;
+  }
+
+  .popupPosition {
+    font-size: 16px;
+    line-height: 26px;
+    color: #000000;
+    font-weight: 300;
+    font-family: "Madani Arabic Light";
+  }
+}
+
+.popupBody {
+  padding: 0px;
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: visible;
+
+  @include max(1200) {
+    padding: 0;
+  }
+}
+
+.popupSection {
+  margin-bottom: 25px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  h3 {
+    display: none; // Hide section titles as per design
+  }
+
+  .bioContent {
+    white-space: pre-line; // This will treat line breaks as paragraph breaks
+
+    span {
+      font-weight: 500;
+    }
+
+    strong {
+      font-family: "Madani Semi Bold";
+      font-weight: 400;
+    }
+
+    em {
+      font-style: italic;
+      color: #666666;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+}
+
+// Add green triangular accent
+.decorativeTriangle {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-bottom: 150px solid #00c48d;
+  border-left: 150px solid transparent;
+  z-index: 1;
+
+  @include max(1440) {
+    border-bottom: 150px solid #00c48d;
+    border-left: 150px solid transparent;
+  }
+
+  @include max(1024) {
+    border-bottom: 60px solid #00c48d;
+    border-left: 60px solid transparent;
+  }
+
+  @include max(768) {
+    border-bottom: 50px solid #00c48d;
+    border-left: 50px solid transparent;
+  }
+
+}
+
+// Animations
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 1440px) {
+  .cardImage {
+    height: 460px;
+  }
+
+  .popupSection {
+    p {
+      font-size: 14px !important;
+      line-height: 22px !important;
+    }
+  }
+
+  .cardFooter {
+    padding: 28px 24px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .cardImage {
+    height: 360px;
+  }
+
+  .cardFooter {
+    padding: 15px;
+  }
+
+
+  .popupHeader {
+    flex-direction: column;
+    text-align: center;
+    padding: 40px 30px 30px 30px;
+    gap: 20px;
+  }
+
+
+  .popupHeaderLeft {
+    align-items: center;
+    width: 100%;
+    gap: 15px;
+  }
+
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .teamCard {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+ 
+
+  .memberInfo {
+    .memberPosition {
+      font-size: 13px;
+    }
+
+    .memberName {
+      font-size: 16px;
+    }
+  }
+
+  .arrowIcon {
+    width: 35px;
+    height: 35px;
+
+    svg {
+      width: 14px;
+      height: 14px;
+    }
+  }
+
+  // Popup responsive
+  .popupOverlay {
+    padding: 10px;
+  }
+
+  .popupContent {
+    max-height: none ;
+    min-height: auto ;
+    height: auto ;
+    overflow-y: visible ;
+    margin: auto;
+  }
+
+  .popupHeader {
+    flex-shrink: 0;
+  }
+
+  .popupBody {
+    flex: 1 1 auto;
+    overflow-y: visible;
+    min-height: 0;
+  }
+ 
+  .popupImage {
+    width: 100%;
+    .popupMemberImage {
+      object-fit: contain;
+    }
+  }
+
+  .popupInfo {
+    padding-top: 0;
+
+    .popupName {
+      font-size: 28px;
+    }
+
+    .popupPosition {
+      font-size: 18px;
+    }
+  }
+
+  .popupSection {
+    margin-bottom: 20px;
+  }
+
+  .popupBody::after {
+    bottom: 15px;
+    right: 15px;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 15px solid #00c48d;
+  }
+
+  .closeButton {
+    top: 8px;
+    right:12px;
+  }
+}
+
+@media (max-width: 480px) {
+  // .cardImage {
+  //   height: 200px;
+  // }
+
+  .cardFooter {
+    padding: 12px;
+  }
+
+  .memberInfo {
+    .memberPosition {
+      font-size: 12px;
+    }
+
+    .memberName {
+      font-size: 14px;
+    }
+  }
+
+  .arrowIcon {
+    width: 30px;
+    height: 30px;
+
+    svg {
+      width: 12px;
+      height: 12px;
+    }
+  }
+}

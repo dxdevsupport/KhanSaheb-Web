@@ -1,0 +1,182 @@
+
+
+.contentWrapper {
+  display: flex;
+  gap: 80px;
+  align-items: center;
+  min-height: 600px;
+}
+
+.imageSection {
+  position: relative;
+  width:42%;
+  overflow: hidden;
+}
+
+.progressImage {
+  width:100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+  
+  &:hover {
+    transform: scale(1.02);
+  }
+}
+.tag{
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+.textSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px 0;
+  width: 52%;
+
+  .paragraphs {
+    p {
+      margin-bottom: 25px;
+      max-width: 790px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+// Image order variations
+.imageLeft {
+  .imageSection {
+    order: 1;
+  }
+  
+  .textSection {
+    order: 2;
+  }
+}
+
+.imageRight {
+  .imageSection {
+    order: 2;
+  }
+  
+  .textSection {
+    order: 1;
+  }
+}
+// Responsive Design
+@media (max-width: 1024px) {
+  .contentWrapper {
+    gap: 50px;
+  }
+  
+  .imageSection {
+    width: 45%;
+  }
+  
+  .textSection {
+    width: 55%;
+    
+    .main_title {
+      font-size: 42px;
+    }
+    
+    .paragraphs p {
+      font-size: 17px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .progressSection {
+    padding: 80px 0;
+  }
+  
+  .contentWrapper {
+    flex-direction: column;
+    gap: 40px;
+    min-height: auto;
+  }
+  
+  .imageSection {
+    width: 100%;
+    height: 400px !important;
+    order: 1 !important;
+  }
+  
+  .textSection {
+    width: 100%;
+    order: 2 !important;
+    padding: 20px 0;
+    
+    .paragraphs p {
+      max-width: 100%;
+      font-size: 16px;
+    }
+    
+    .main_title {
+      font-size: 36px;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .contentWrapper {
+    gap: 35px;
+  }
+  
+  .imageSection {
+    height: 350px !important;
+  }
+  
+  .textSection {
+    padding: 15px 0;
+    
+    .tag {
+      font-size: 18px;
+      margin-bottom: 12px;
+    }
+    
+    .main_title {
+      font-size: 32px;
+    }
+    
+    .paragraphs p {
+      font-size: 15px;
+      margin-bottom: 20px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .progressSection {
+    padding: 60px 0;
+  }
+  
+  .contentWrapper {
+    gap: 30px;
+  }
+  
+  .imageSection {
+    height: 280px !important;
+  }
+  
+  .textSection {
+    padding: 10px 0;
+    
+    .tag {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+    
+    .main_title {
+      font-size: 28px;
+    }
+    
+    .paragraphs p {
+      font-size: 14px;
+      margin-bottom: 18px;
+    }
+  }
+}

@@ -1,0 +1,382 @@
+.footer {
+  background: #f8f9fa;
+  padding: 100px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.footerContent {
+  // display: grid;
+  // grid-template-columns: 1fr 0.8fr 1.2fr 1.2fr 1.5fr;
+  display: flex;
+  justify-content: space-between;
+  gap: 60px;
+  align-items: flex-start;
+}
+
+.logoSection {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: auto;
+
+  @media (max-width: 768px) {
+    .logo {
+      max-width: 70px;
+    }
+  }
+}
+
+.hashtag {
+  font-size: 14.5px;
+  color: #000000;
+  font-weight: 500;
+  margin-top: 10px;
+  font-family: "madani semi bold";
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  h5 {
+    font-size: 22px;
+    line-height: 24px;
+    text-transform: uppercase;
+    color: #222423;
+    margin-bottom: 25px;
+  }
+}
+
+.historyColumn {
+  h5 {
+    font-family: var(--font-family-bold);
+  }
+  span {
+    margin-top: 5px;
+  }
+}
+
+.columnTitle {
+  font-size: 18px;
+  text-transform: uppercase;
+  color: #222423;
+  margin-bottom: 20px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.historyText {
+  color: #e40032;
+  display: block;
+}
+
+.linkList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.linkList li {
+  margin-bottom: 6px;
+  list-style: none;
+
+  @media (max-width: 1024px) {
+    margin-bottom: 10px;
+  }
+}
+
+.footerLink {
+  color: #222423;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 300;
+  transition: color 0.3s ease;
+  line-height: 1.2;
+
+  &:hover {
+    color: #e4002b;
+  }
+}
+
+.socialIcons {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.socialIcon {
+  width: 47px;
+  height: 47px;
+  background: #e4002b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: #c7002a;
+    transform: translateY(-2px);
+  }
+  span {
+    font-size: 23px;
+  }
+  &:nth-child(2) {
+    span {
+      font-size: 20px;
+    }
+  }
+}
+
+.socialText {
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.copyrightText {
+  font-size: 15px;
+  color: #222423;
+  margin-bottom: 25px;
+}
+
+.legalLinks {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  list-style: none;
+}
+.legalLinks li {
+  list-style: none;
+}
+.legalLink {
+  color: #222423;
+  text-decoration: underline;
+  font-size: 13px;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: #e4002b;
+  }
+}
+
+.separator {
+  color: #222423;
+  margin: 0 8px;
+  font-size: 14px;
+}
+
+// Decorative elements (if needed)
+.footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-right: 100px solid transparent;
+  border-top: 100px solid #00c48d;
+  z-index: 1;
+}
+
+.footer::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-left: 100px solid transparent;
+  border-bottom: 100px solid #e40032;
+  z-index: 1;
+
+  @media (max-width: 1400px) {
+    border-left: 80px solid transparent;
+  border-bottom: 80px solid #e40032;
+  }
+
+  @media (max-width: 820px) {
+    border-left: 60px solid transparent;
+  border-bottom: 60px solid #e40032;
+  }
+}
+
+@media (max-width: 1400px) {
+  .footer {
+    padding: 80px 0;
+  }
+
+  .footerLink {
+    font-size: 14px;
+    line-height: 1.1;
+  }
+
+  .footerContent {
+    gap: 40px;
+  }
+}
+
+// Responsive Design
+@media (max-width: 1300px) {
+  .container {
+    padding: 0 30px;
+  }
+
+  .footerContent {
+    display: grid;
+    grid-template-columns: 1fr 0.8fr 1.2fr 1.2fr 1.5fr;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .footer {
+    padding: 50px 0 30px;
+  }
+
+  .footerContent {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px;
+  }
+
+  .logoSection {
+    grid-column: 1 / -1;
+    text-align: center;
+    margin-block: 30px 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 40px 0 20px;
+  }
+
+  .container {
+    padding: 0 20px;
+  }
+
+  .footerContent {
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+  }
+
+  .columnTitle {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+
+  .socialIcons {
+    gap: 10px;
+  }
+
+  .socialIcon {
+    width: 35px;
+    height: 35px;
+
+    // Twitter icon - 25px on smaller screens
+    span[class*="icon-X"] {
+      font-size: 25px !important;
+    }
+
+    // LinkedIn icon - 16px on smaller screens
+    span[class*="icon-Linkedin"] {
+      font-size: 19px !important;
+    }
+  }
+
+  .socialText {
+    font-size: 12px;
+  }
+
+  .column {
+    h5 {
+      font-size: 18px;
+    }
+  }
+
+  .historyColumn {
+    span {
+      margin-top: 2px;
+    }
+  }
+
+  .copyrightText {
+    margin-bottom: 15px;
+  }
+
+  .footer::before {
+    border-right: 60px solid transparent;
+    border-top: 60px solid #00c48d;
+  }
+}
+
+@media (max-width: 480px) {
+  .footerContent {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+  }
+
+  // Logo section - full width (one row)
+  .logoSection {
+    grid-column: 1 / -1;
+    text-align: center;
+    align-items: left;
+    margin-block: 0;
+  }
+
+  // Footer menus (first two menu columns after logo) - 2-column grid
+  // Target columns that come after logoSection and are not social or history columns
+  .column:not(.socialColumn):not(.historyColumn) {
+    grid-column: auto;
+  }
+
+  // Social media container - full width (one row)
+  .socialColumn {
+    grid-column: 1 / -1;
+  }
+
+  // Last column (Company History) - full width (one row)
+  .historyColumn {
+    grid-column: 1 / -1;
+  }
+
+  .legalLinks {
+    justify-content: flex-start;
+  }
+
+  .copyrightText {
+    font-size: 14px;
+    text-align: left;
+  }
+
+  .socialIcon {
+    width: 28px;
+    height: 28px;
+
+    span {
+      font-size: 16px;
+    }
+
+    // Twitter icon - 25px on smaller screens
+    span[class*="icon-X"] {
+      font-size: 19px !important;
+    }
+
+    // LinkedIn icon - 16px on smaller screens
+    span[class*="icon-Linkedin"] {
+      font-size: 15px !important;
+    }
+  }
+
+  .columnTitle {
+    margin-bottom: 12px;
+  }
+}

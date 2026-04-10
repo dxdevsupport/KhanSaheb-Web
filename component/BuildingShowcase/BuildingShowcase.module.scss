@@ -1,0 +1,390 @@
+.buildingShowcase {
+	background: #f9f9f9;
+	position: relative;
+	overflow: hidden;
+	background-image: url("/images/white-vector.png");
+	background-repeat: no-repeat;
+	background-position: bottom left;
+	background-size: contain;
+}
+
+.layoutContainer {
+	display: grid;
+	grid-template-columns: 1.8fr 513px 1fr;
+	gap: 50px;
+	align-items: start;
+	min-height: 575px;
+	position: relative;
+	transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+	// When left image is hovered - expand left, shrink right
+	&.leftHovered {
+		grid-template-columns: 2fr 513px 0.8fr;
+		gap: 50px; // Maintain same gap
+		align-items: start; // Keep alignment at top
+	}
+
+	// When right image is hovered - shrink left, expand right, maintain gap
+	&.rightHovered {
+		grid-template-columns: 0.8fr 513px 2fr; // Keep center fixed, adjust left and right proportionally
+		gap: 50px; // Maintain same gap as initial state
+		align-items: start; // Align all items to top when right is hovered
+	}
+}
+
+// Left Image - Large and positioned at top
+.leftImageContainer {
+	position: relative;
+	width: 100%;
+	height: 500px;
+	// max-width: 522px;
+	overflow: hidden;
+	transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+	cursor: pointer;
+	transform-origin: left center; // Set default origin to left
+
+	&.expanded {
+		// transform: scaleX(1.1); 
+		z-index: 10;
+	}
+
+	&.shrunk {
+		// When right is hovered, shrink left image width from left (right edge stays fixed)
+		width: 85%; // Reduce width to shrink
+		transform: scale(1); // Don't scale, just reduce width
+		transform-origin: right center; // Shrink from left, keep right edge fixed
+		z-index: 1;
+		height: 500px; // Keep same height
+		margin-left: auto; // Push to right to keep right edge in same position
+	}
+}
+
+.leftImage {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+	transform: scale(1);
+
+	.leftImageContainer.expanded & {
+		transform: scale(1); // Image stays at normal scale, container scales
+		width: 100%; // Fill the container
+		object-fit: cover; // Maintain aspect ratio
+	}
+
+	.leftImageContainer.shrunk & {
+		transform: scale(1.05);
+		width: 100%;
+	}
+}
+
+// Center Text Content
+.textContent {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	z-index: 5;
+	transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+	margin-top:-16px;
+}
+
+.mainTitle {
+	font-size: 54px;
+	line-height: 1.2;
+	font-weight: 500;
+	color: #e4002b;
+	white-space: nowrap;
+	.yearText {
+		display: block;
+		margin-top: 5px;
+	}
+}
+
+.textContent p {
+	color: #222423;
+	font-size: 16px;
+	line-height: 1.6;
+}
+
+.ctaButton {
+	background: #e4002b;
+	color: white;
+	border: none;
+	padding: 15px 40px;
+	font-size: 16px;
+	font-weight: 600;
+	border-radius: 4px;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	font-family: "MadaniArabic", sans-serif;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	align-self: flex-start;
+
+	&:hover {
+		background: #c7002a;
+		transform: translateY(-2px);
+		box-shadow: 0 8px 20px rgba(228, 0, 43, 0.3);
+	}
+
+	&:active {
+		transform: translateY(0);
+	}
+}
+
+// Right Image - Smaller and positioned at bottom initially
+.rightImageContainer {
+	position: relative;
+	width: 100%;
+	height: 392px;
+	overflow: hidden;
+	transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+	cursor: pointer;
+	align-self: start; // Always align to start for smooth transitions
+	transform: translateY(150px); // Initially translate down to appear below
+
+	&.expanded {
+		// When right image is hovered, expand to match left image and text height
+		transform: translateY(0) scale(1.05); // Move to top and scale
+		z-index: 10;
+		height: 500px; // Match the left image height (500px)
+		width: 100%; // Ensure full width
+	}
+
+	&.shrunk {
+		// When left is hovered, increase right image height upward and decrease width
+		// Bottom stays fixed: initial bottom = 150px + 392px = 542px
+		// New height = 515px, so translateY = 542px - 515px = 27px
+		transform: translateY(27px); // Adjust translateY to keep bottom fixed
+		transform-origin: bottom center; // Grow from bottom, keep bottom fixed
+		z-index: 1;
+		height: 515px; // Increase height (grows upward from bottom)
+		width: 85%; // Decrease width
+	}
+}
+
+.rightImage {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+	transform: scale(1);
+	max-width: 530px;
+	padding-left: 50px;
+
+	.rightImageContainer.expanded & {
+		height: 100%; // Use container height
+		width: 100%; // Expand width smoothly
+		max-width: 100%; // Remove max-width restriction when expanded
+		padding-left: 0; // Remove padding when expanded for full width
+	}
+
+	.rightImageContainer.shrunk & {
+		height: 100%; // Use container height (515px)
+		width: 100%; // Use container width (85% of parent)
+		object-fit: cover;
+		max-width: 100%; // Remove max-width restriction
+		padding-left: 0; // Remove padding
+	}
+}
+
+// Responsive Design
+@media (max-width: 1440px) {
+
+	.layoutContainer {
+		gap: 80px;
+		min-height: 520px;
+	}
+
+	.mainTitle {
+		font-size: 46px;
+	}
+
+	.textContent p {
+		padding-right: 60px;
+		font-size: 14px;
+	}
+
+	.leftImageContainer {
+		height: 470px;
+	}
+
+	.rightImageContainer {
+		height: 370px;
+
+		&.expanded {
+			height: 480px;
+		}
+	}
+
+	.rightImage {
+		.rightImageContainer.expanded & {
+			height: 530px;
+		}
+	}
+}
+
+@media (max-width: 1200px) {
+	.container {
+		padding: 0 30px;
+	}
+
+	.layoutContainer {
+		gap: 60px;
+	}
+
+	.mainTitle {
+		font-size: 42px;
+	}
+
+	.leftImageContainer {
+		height: 450px;
+	}
+
+	.rightImageContainer {
+		height: 250px;
+
+		&.expanded {
+			height: 350px;
+		}
+	}
+}
+
+@media (max-width: 1024px) {
+	.layoutContainer {
+		grid-template-columns: 1fr;
+		gap: 40px;
+		text-align: center;
+	}
+
+	.leftImageContainer,
+	.rightImageContainer {
+		justify-self: center;
+		max-width: 500px;
+	}
+
+	.textContent {
+		order: 2;
+		text-align: center;
+		align-items: center;
+	}
+	
+	.textContent p {
+		padding-right: 0px;
+	}
+
+	.leftImageContainer {
+		order: 1;
+	}
+
+	.rightImageContainer {
+		order: 3;
+		align-self: center;
+		transform: translateY(0px);
+
+		&.expanded {
+			transform: scale(1.1);
+		}
+
+		&.shrunk {
+			transform: scale(0.9);
+		}
+	}
+
+	.rightImage {
+		padding-left: 0px;
+	}
+
+	.ctaButton {
+		align-self: center;
+	}
+}
+
+@media (max-width: 768px) {
+
+	.container {
+		padding: 0 20px;
+	}
+
+	.layoutContainer {
+		gap: 30px;
+	}
+
+	.mainTitle {
+		font-size: 36px;
+	}
+
+	.description {
+		font-size: 16px;
+	}
+
+	.leftImageContainer {
+		height: 350px;
+	}
+
+	.rightImageContainer {
+		height: 200px;
+
+		&.expanded {
+			height: 280px;
+		}
+	}
+}
+
+@media (max-width: 480px) {
+
+	.textContent {
+		order: 2;
+		text-align: left;
+		align-items: flex-start;
+	}
+
+	.mainTitle {
+		font-size: 28px;
+	}
+
+	.description {
+		font-size: 15px;
+	}
+
+	.ctaButton {
+		padding: 12px 30px;
+		font-size: 14px;
+	}
+
+	.leftImageContainer {
+		height: 300px;
+	}
+
+	.rightImageContainer {
+		&.expanded {
+			height: 250px;
+		}
+	}
+}
+
+// Animation keyframes for smooth transitions
+@keyframes fadeInUp {
+	from {
+		opacity: 0;
+		transform: translateY(30px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.leftImageContainer,
+.textContent,
+.rightImageContainer {
+	animation: fadeInUp 0.8s ease-out;
+}
+
+.textContent {
+	animation-delay: 0.2s;
+}
+
+.rightImageContainer {
+	animation-delay: 0.4s;
+}

@@ -1,0 +1,389 @@
+@import "@/styles/mixins";
+@import "@/styles/variable";
+
+.header_container {
+  background-color: #ffffff;
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  transition: background-color 1.8s cubic-bezier(0.25, 0.1, 0.25, 1);
+
+  @media #{$media-768} {
+    min-height: auto;
+  }
+}
+
+.content_grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  width: 100%;
+
+  @media #{$media-1024} {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  @media #{$media-480} {
+    gap: 30px;
+  }
+}
+
+.text_section {
+  display: flex;
+  flex-direction: column;
+  gap: 23px;
+
+  @include max(1440) {
+    gap: 20px;
+  }
+
+  @media #{$media-768} {
+    order: 2;
+    gap: 18px;
+  }
+
+  .title {
+    max-width: 90%;
+    @include max(1024) {
+      max-width: 100%;
+    }
+  }
+}
+
+.objectives_list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.content_desc {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #222423;
+  font-weight: 400;
+  @media #{$media-1440} {
+    font-size: 14px;
+  }
+}
+
+.content_wrapper {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #222423;
+
+  @media #{$media-1440} {
+    font-size: 14px;
+  }
+
+  // Style paragraphs
+  p {
+    margin-bottom: 1.5rem;
+    font-weight: 400;
+    line-height: 1.6;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @media #{$media-768} {
+      margin-bottom: 1rem;
+    }
+  }
+
+  // Style unordered lists
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+
+    @media #{$media-768} {
+      margin: 1rem 0;
+    }
+  }
+
+  // Style list items with bullet points
+  li {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 22px;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #222423;
+    list-style: none;
+    font-weight: 400;
+
+    &::before {
+      content: "•";
+      position: absolute;
+      left: 5px;
+      top: 13px;
+      transform: translateY(-55%);
+      color: #222423;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @media #{$media-1440} {
+      font-size: 14px;
+      margin-bottom: 18px;
+    }
+  }
+
+  // Style strong/bold text
+  strong {
+    font-family: "Madani Semi Bold";
+    font-weight: 400;
+  }
+
+  // Style span elements
+  span {
+    font-weight: inherit;
+  }
+}
+
+.objective_item {
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 16px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #222423;
+  list-style: none;
+  font-weight: 400;
+
+  &::before {
+    content: "•";
+    position: absolute;
+    left: 8px;
+    top: 55%;
+    transform: translateY(-55%);
+    color: #222423;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  @include max(1440) {
+    font-size: 14px;
+  }
+
+  @include max(1024) {
+    margin-bottom: 10px;
+  }
+}
+
+.image_section {
+  display: flex;
+  justify-content: center;
+
+  @media #{$media-768} {
+    order: 1;
+  }
+}
+
+.image_container {
+  width: 100%;
+  // max-width: 600px;
+  height: 537px;
+  position: relative;
+  overflow: hidden;
+
+  @media #{$media-1024} {
+    height: 400px;
+    max-width: 100%;
+  }
+
+  @media #{$media-480} {
+    height: 300px;
+  }
+}
+
+.quality_image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.video_wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+
+  &:hover {
+    .playButtonOverlay.playing {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}
+
+.quality_video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.play_button_overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+}
+
+.play_button {
+  width: 80px;
+  height: 80px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  color: #dc2626; // Red color for the play icon
+
+  &:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
+  }
+
+  svg {
+    margin-left: 4px; // Slight offset to center the triangle visually
+  }
+
+  @media #{$media-768} {
+    width: 60px;
+    height: 60px;
+  }
+
+  @media #{$media-480} {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+.playButtonOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: opacity 0.5s ease, visibility 0.5s ease, background 0.3s ease;
+  z-index: 2;
+  opacity: 1;
+  visibility: visible;
+
+  &.playing {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+  }
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.5);
+
+    .playButton {
+      transform: scale(1.1);
+    }
+  }
+}
+
+.playButton {
+  width: 100px;
+  height: 100px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+
+  @media (max-width: 768px) {
+    width: 60px;
+    height: 60px;
+  }
+
+  @media (max-width: 480px) {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+.playIcon {
+  width: 0;
+  height: 0;
+  border-left: 36px solid #e40032;
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+  margin-left: 4px;
+  transition: all 0.3s ease;
+
+  @media (max-width: 768px) {
+    border-left: 24px solid #e40032;
+    border-top: 14px solid transparent;
+    border-bottom: 14px solid transparent;
+  }
+
+  @media (max-width: 480px) {
+    border-left: 15px solid #e40032;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+  }
+}
+
+.pauseIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: all 0.3s ease;
+
+  @media (max-width: 768px) {
+    gap: 4px;
+  }
+
+  @media (max-width: 480px) {
+    gap: 3px;
+  }
+}
+
+.pauseBar {
+  width: 8px;
+  height: 28px;
+  background: #e40032;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+
+  @media (max-width: 768px) {
+    width: 6px;
+    height: 20px;
+  }
+
+  @media (max-width: 480px) {
+    width: 5px;
+    height: 16px;
+  }
+}

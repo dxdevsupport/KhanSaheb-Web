@@ -1,0 +1,179 @@
+@import "@/styles/mixins";
+@import "@/styles/variable";
+
+.header_container {
+  background-color: #222423;
+  position: relative;
+  padding: 80px 0px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  transition: background-color 1.8s cubic-bezier(0.25, 0.1, 0.25, 1);
+  transform: translateY(0);
+
+  @media #{$media-768} {
+    min-height: auto;
+    padding: 60px 0;
+  }
+
+  @media #{$media-480} {
+    padding: 40px 0;
+  }
+
+  &.animated {
+    background-color: #222423;
+    transform: translateY(0);
+
+    .title,
+    .description {
+      color: #ffffff;
+    }
+
+    .enquire_btn {
+      background-color: #ffffff;
+      color: #000000;
+    }
+  }
+}
+
+.content_grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: flex-start;
+  width: 100%;
+
+  @media #{$media-1024} {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  @media #{$media-480} {
+    gap: 20px;
+  }
+}
+
+.image_section {
+  position: relative;
+  height: 100%;
+  min-height: 509px;
+
+  @media #{$media-768} {
+    min-height: 400px;
+  }
+
+  @media #{$media-480} {
+    min-height: 350px;
+  }
+}
+
+.content_image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.text_section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.title {
+  font-size: 34px;
+  line-height: 1.2;
+  margin-bottom: 24px;
+  font-weight:500;
+  color: #fff;
+  transition: color 1.8s cubic-bezier(0.25, 0.1, 0.25, 1);
+
+  @media #{$media-768} {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+
+  @media #{$media-480} {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+}
+
+.description_container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  .description {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #fff;
+    margin: 0;
+    transition: color 1.8s cubic-bezier(0.25, 0.1, 0.25, 1);
+
+    @media #{$media-1440} {
+      font-size: 14px;
+    }
+
+    p{
+      font-size: 16px;
+      line-height: 1.6;
+      color: #ffffff;
+      margin: 0;
+      transition: color 1.8s cubic-bezier(0.25, 0.1, 0.25, 1);
+
+      @media #{$media-1440} {
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+.green_triangle {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-left: 120px solid transparent;
+  border-top: 120px solid #00C48D;
+  z-index: 1;
+
+  @media #{$media-768} {
+    border-left: 80px solid transparent;
+    border-top: 80px solid #00C48D;
+  }
+
+  @media #{$media-480} {
+    border-left: 60px solid transparent;
+    border-top: 60px solid #00C48D;
+  }
+}
+
+.enquire_btn {
+  margin-top: 40px;
+
+
+  @media #{$media-1024} {
+    margin-top: 30px;
+  }
+
+  @media #{$media-480} {
+    margin-top: 20px;
+  }
+}
+
+.red_traingle {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-right: 320px solid transparent;
+  border-bottom: 320px solid #e40032;
+  opacity: 0.8;
+  z-index: 1;
+
+  @media #{$media-1024} {
+    border-right: 120px solid transparent;
+    border-bottom: 120px solid #e40032;
+  }
+}

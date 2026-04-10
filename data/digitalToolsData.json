@@ -1,0 +1,26 @@
+{
+  "title": "Quality, Safety & Productivity",
+  "subtitle": "Our digital tools support:",
+  "tools": [
+    {
+      "id": 1,
+      "icon": "/images/icons/dashboard.svg",
+      "title": "Transparent progress reporting and dashboards"
+    },
+    {
+      "id": 2,
+      "icon": "/images/icons/site-safety.svg",
+      "title": "Digital site safety briefings, inductions and audits"
+    },
+    {
+      "id": 3,
+      "icon": "/images/icons/kpi.svg",
+      "title": "Labour allocation, lookahead planning and KPI tracking"
+    },
+    {
+      "id": 4,
+      "icon": "/images/icons/real-time.svg",
+      "title": "Real-time monitoring of productivity and quality metrics"
+    }
+  ]
+}

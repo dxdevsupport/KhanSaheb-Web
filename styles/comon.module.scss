@@ -1,0 +1,26 @@
+@import "variable", "base";
+
+.test_height {
+  height: 1000px;
+  font-family: var(--helveticaneuelt_arabic_55);
+}
+
+.height_100 {
+  height: 100dvh;
+}
+
+.h1 {
+  font-size: 4.688rem;
+  font-weight: normal;
+  font-family: var(--helveticaneueltarabicBold);
+  line-height: 100%;
+
+  span {
+    background: linear-gradient(-90deg, rgba(227, 181, 255, 1) 0%, rgba(94, 69, 255, 1) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: left;
+    display: inline-block;
+  }
+}

@@ -1,0 +1,199 @@
+@import "@/styles/mixins";
+@import "@/styles/variable";
+
+.digital_cordination_section {
+  position: relative;
+  width: 100%;
+  height: 765px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+  box-sizing: border-box;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+
+  @include max(1024) {
+    height: 600px;
+    background-attachment: scroll;
+  }
+
+  .backgroundImage {
+    position: absolute;
+    top: -20%;
+    left: 0;
+    width: 100%;
+    height: 150%;
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+    z-index: 0;
+    will-change: transform;
+    transform-origin: top center;
+    // Extra height to prevent gaps during parallax movement and scaling
+
+    @include max(1024) {
+      height: 200%;
+      background-position: bottom;
+      transform-origin: bottom center;
+    }
+  }
+
+  .container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 0;
+    z-index: 2;
+  }
+}
+
+.content_box {
+  position: relative;
+  background-color: rgba(228, 0, 50, 0.8);
+  padding: 65px 50px;
+  width: 48%;
+  margin-left: auto;
+  margin-bottom: 0;
+  z-index: 2;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-left: 120px solid transparent;
+    border-top: 120px solid #00c48d;
+    z-index: 3;
+
+    @include max(1024) {
+      border-left: 100px solid transparent;
+      border-top: 100px solid #00c48d;
+    }
+
+    @include max(768) {
+      border-left: 80px solid transparent;
+      border-top: 80px solid #00c48d;
+    }
+  }
+
+  @include max(1024) {
+    width: 55%;
+    padding: 50px 40px;
+  }
+
+  @include max(768) {
+    width: 100%;
+    padding: 40px 30px;
+    margin-left: 0;
+  }
+
+  @include max(480) {
+    padding: 30px 25px;
+  }
+}
+
+.green_triangle {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-left: 120px solid transparent;
+  border-top: 120px solid #00c48d;
+  z-index: 3;
+
+  @include max(1024) {
+    border-left: 100px solid transparent;
+    border-top: 100px solid #00c48d;
+  }
+
+  @include max(768) {
+    border-left: 80px solid transparent;
+    border-top: 80px solid #00c48d;
+  }
+
+  @include max(480) {
+    border-left: 60px solid transparent;
+    border-top: 60px solid #00c48d;
+  }
+}
+
+.title {
+  font-size: 50px;
+  font-weight: 500;
+  color: #ffffff;
+  line-height: 1.2;
+  margin: 0 0 20px 0;
+  text-align: left;
+
+  @include max(1024) {
+    font-size: 42px;
+    margin-bottom: 18px;
+  }
+
+  @include max(768) {
+    font-size: 32px;
+    margin-bottom: 16px;
+  }
+
+  @include max(480) {
+    font-size: 24px;
+    margin-bottom: 14px;
+  }
+}
+
+.description {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #ffffff;
+  margin: 0;
+  text-align: left;
+
+  @include max(1440) {
+    font-size: 14px;
+  }
+
+  @include max(480) {
+    font-size: 13px;
+  }
+  p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #ffffff;
+    margin: 0;
+    text-align: left;
+
+    @include max(1440) {
+      font-size: 14px;
+    }
+
+    @include max(480) {
+      font-size: 13px;
+    }
+  }
+}
+
+.black_tringle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-top: 320px solid rgba(0, 0, 0, 0.8);
+  border-right: 320px solid transparent;
+  z-index: 1;
+
+  @include max(768) {
+    border-top: 240px solid rgba(0, 0, 0, 0.8);
+    border-right: 240px solid transparent;
+  }
+
+  @include max(540) {
+    border-top: 120px solid rgba(0, 0, 0, 0.8);
+    border-right: 120px solid transparent;
+  }
+}

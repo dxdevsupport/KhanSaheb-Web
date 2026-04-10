@@ -1,0 +1,17 @@
+@import "@/styles/mixins";
+@import "@/styles/variable";
+
+.header_container {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  // gap: 80px;
+
+  // @include max(768) {
+  //   gap: 60px;
+  // }
+
+  // @include max(540) {
+  //   gap: 0px;
+  // }
+}

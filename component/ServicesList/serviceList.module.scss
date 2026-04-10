@@ -1,0 +1,177 @@
+@import "@/styles/mixins";
+@import "@/styles/variable";
+
+.header_container {
+  background-color: #ffffff;
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+
+  @media #{$media-768} {
+    min-height: auto;
+  }
+}
+
+.capabilitiesSwiper {
+  position: relative;
+
+  .swiper {
+    padding-bottom: 20px;
+  }
+
+  .swiperSlide {
+    height: auto;
+  }
+
+  .navButtonPrev,
+  .navButtonNext {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 11;
+    pointer-events: all;
+    transition: opacity 0.3s ease;
+    background-color: rgba(34, 36, 35, 0.3);
+    width: 47px;
+    height: 47px;
+
+    @include max(1100) {
+      width: 35px;
+      height: 35px;
+    }
+
+    &:hover:not(:disabled) {
+      opacity: 0.7;
+    }
+
+    &:active:not(:disabled) {
+      opacity: 0.5;
+    }
+
+    &:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+
+    svg {
+      width: 8px;
+      height: 14px;
+    }
+
+      @include max(768) {
+        display:none;
+      }
+  }
+
+  .navButtonPrev {
+    left: -60px;
+
+    @include max(1440) {
+      left: -50px;
+    }
+
+    @include max(1024) {
+      left: -37px;
+    }
+
+    @include max(768) {
+      left: -33px;
+      height: 30px;
+      width: 30px;
+    }
+
+    @include max(480) {
+      width: 28px;
+      height: 28px;
+      left: -28px;
+    }
+  }
+
+  .navButtonNext {
+    right: -60px;
+
+    @include max(1440) {
+      right: -50px;
+    }
+
+    @include max(1024) {
+      right: -37px;
+    }
+
+    @include max(768) {
+      right: -33px;
+      height: 30px;
+      width: 30px;
+    }
+
+    @include max(480) {
+      width: 28px;
+      height: 28px;
+      right: -28px;
+    }
+  }
+}
+
+.title_and_navigation {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  
+  .mob_button_container {
+    display: none;
+    align-items: center;
+    gap:10px;
+    @include max(768) {
+      display: flex;
+    }
+
+    button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 11;
+    pointer-events: all;
+    transition: opacity 0.3s ease;
+    background-color: rgba(34, 36, 35, 0.3);
+    width: 47px;
+    height: 47px;
+
+    @include max(1100) {
+      width: 35px;
+      height: 35px;
+    }
+
+    &:hover:not(:disabled) {
+      opacity: 0.7;
+    }
+
+    &:active:not(:disabled) {
+      opacity: 0.5;
+    }
+
+    &:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+
+    svg {
+      width: 8px;
+      height: 14px;
+    }
+    }
+  }
+}

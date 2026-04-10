@@ -1,0 +1,172 @@
+@import "@/styles/mixins";
+
+.welfare_section {
+  background-color: #222423;
+  // padding: 80px 0;
+  position: relative;
+  overflow: hidden;
+  transition: background-color 1.8s cubic-bezier(0.25, 0.1, 0.25, 1) ;
+
+  // &.inView {
+  //   background-color: ;
+  // }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-right: 150px solid #00C48D;
+    border-bottom: 150px solid transparent;
+    z-index: 1;
+
+    @include max(1440) {
+      border-right: 100px solid #00C48D;
+      border-bottom: 100px solid transparent;
+    }
+
+    @include max(1200) {
+      border-right: 80px solid #00C48D;
+      border-bottom: 80px solid transparent;
+    }
+
+    @include max(768) {
+      border-right: 40px solid #00C48D;
+      border-bottom: 40px solid transparent;
+    }
+  }
+
+  @include max(768) {
+    padding: 60px 0;
+    background-color: #222423;
+  }
+
+  @include max(480) {
+    padding: 40px 0;
+  }
+}
+
+.welfare_grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+
+  @include max(1024) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+
+  @include max(768) {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+.welfare_item {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  height: 100%;
+  @include max(1024) {
+    gap: 0px;
+  }
+}
+
+.welfare_panel {
+  background-color: #e40032;
+  padding: 50px 30px;
+  color: white;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+
+  @include max(1024) {
+    padding: 18px;
+  }
+
+  @include max(768) {
+    padding: 20px;
+  }
+
+  @include max(480) {
+    padding: 16px;
+  }
+}
+
+.welfare_title {
+  font-size: 30px;
+  line-height: 36px;
+  font-weight: 400;
+  margin-bottom: 12px;
+  color: #ffffff;
+
+  @include max(1024) {
+    font-size: 26px;
+    line-height: 32px;
+    margin-bottom: 10px;
+  }
+
+  @include max(768) {
+    font-size: 20px;
+    line-height: 24px;
+    margin-bottom: 12px;
+  }
+
+  @include max(480) {
+    font-size: 16px;
+    line-height: 20px;
+    margin-bottom: 10px;
+  }
+}
+
+.welfare_list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex: 1;
+}
+
+.welfare_list_item {
+  position: relative;
+  padding-left: 16px;
+  margin-bottom: 6px;
+  font-weight:500;
+  font-size: 14px;
+  line-height: 1.6;
+  list-style: none;
+
+  &::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: white;
+    font-weight: bold;
+  }
+
+  @include max(1024) {
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+
+  @include max(768) {
+    font-size: 13px;
+    margin-bottom: 6px;
+  }
+
+  @include max(480) {
+    font-size: 12px;
+    margin-bottom: 4px;
+  }
+}
+
+.welfare_image {
+  width: 100%;
+  height: 253px;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}

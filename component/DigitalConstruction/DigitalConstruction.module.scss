@@ -1,0 +1,217 @@
+@import "@/styles/mixins";
+@import "@/styles/variable";
+
+.digitalConstructionSection {
+  position: relative;
+  width: 100%;
+  height: 770px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  box-sizing: border-box;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+
+  .backgroundImage {
+    position: absolute;
+    top: -20%;
+    left: 0;
+    width: 100%;
+    height: 140%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    will-change: transform;
+    z-index: 0;
+    transform-origin: center center;
+    // Extra height to prevent gaps during parallax movement
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to left,
+        rgba(0, 0, 0, 0.55),
+        rgba(0, 0, 0, 0.55)
+      ),
+      linear-gradient(to left, #d9d9d900, #d9d9d908);
+    z-index: 1;
+  }
+}
+
+.container {
+  position: relative;
+  z-index: 9;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  // Don't override global container max-width, margin, or padding
+  // Let the global .container class handle spacing and centering
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.contentLeft {
+  max-width: 820px;
+  width: 100%;
+  box-sizing: border-box;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  flex-shrink: 1;
+  min-width: 0; // Allows flex item to shrink below content size
+
+  h2,
+  p {
+    color: #fff;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
+    line-height: 100%;
+  }
+  h2 {
+    margin-bottom: 30px;
+    width: 75%;
+    max-width: 100%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+  p {
+    font-size: 16px;
+    line-height: 1.4;
+    font-family: var(--font-family-light);
+    max-width: 625px;
+    width: 100%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    @media #{$media-1440} {
+      font-size: 14px;
+    }
+  }
+  a {
+    // min-width: 200px;
+    margin-top: 40px;
+
+    @media (max-width: 1024px) {
+      margin-top: 30px;
+    }
+
+    @media (max-width: 480px) {
+      margin-top: 20px;
+    }
+  }
+}
+
+// Triangular Overlays
+
+// Responsive Design
+@media (max-width: 1200px) {
+  .container {
+    padding: 60px 30px;
+    gap: 30px;
+  }
+  .title {
+    font-size: 50px;
+  }
+  .learnMoreButton {
+    padding: 12px 30px;
+    font-size: 15px;
+  }
+  .greenTriangle,
+  .redTriangle {
+    border-bottom: 150px solid;
+    border-right: 150px solid transparent;
+    border-left: 150px solid transparent;
+  }
+}
+
+@media (max-width: 1024px) {
+  .digitalConstructionSection {
+    background-attachment: scroll;
+  }
+}
+
+@media (max-width: 992px) {
+  .container {
+    flex-direction: column;
+    text-align: center;
+    padding: 50px 25px;
+  }
+  .contentLeft {
+    max-width: 100%;
+    h2 {
+      width: 100%;
+    }
+  }
+  .tag {
+    margin-bottom: 15px;
+  }
+  .title {
+    font-size: 42px;
+    margin-bottom: 20px;
+  }
+  .description {
+    margin-bottom: 30px;
+  }
+  .contentRight {
+    justify-content: center;
+    margin-top: 40px;
+  }
+  .workerImageContainer {
+    max-width: 500px;
+  }
+  .greenTriangle,
+  .redTriangle {
+    border-bottom: 100px solid;
+    border-right: 100px solid transparent;
+    border-left: 100px solid transparent;
+  }
+}
+
+@media (max-width: 768px) {
+  .digitalConstructionSection {
+    min-height: auto;
+    padding-bottom: 50px;
+  }
+  .container {
+    padding: 40px 20px;
+  }
+  .title {
+    font-size: 36px;
+  }
+  .workerImageContainer {
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 576px) {
+  .tag {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+  .title {
+    font-size: 30px;
+  }
+  .description {
+    font-size: 15px;
+  }
+  .learnMoreButton {
+    padding: 10px 25px;
+    font-size: 14px;
+  }
+  .workerImageContainer {
+    max-width: 300px;
+  }
+  .greenTriangle,
+  .redTriangle {
+    border-bottom: 80px solid;
+    border-right: 80px solid transparent;
+    border-left: 80px solid transparent;
+  }
+}

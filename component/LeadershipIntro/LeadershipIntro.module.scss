@@ -1,0 +1,435 @@
+@import "@/styles/mixins";
+
+.leadershipIntro {
+  background-color: #ffffff;
+}
+
+.contentWrapper {
+  display:flex;
+  justify-content: space-between;
+  gap: 50px;
+}
+.textSection {
+  width:65%;
+  h2 {
+    margin-bottom: 25px;
+  }
+}
+.paragraphs {
+  p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    color: #000000;
+    &:last-child {
+      margin-bottom: 0;
+    }
+    @include max(1440) {
+      font-size:14px;
+    }
+  }
+}
+
+// Responsive Design
+@media (max-width: 1024px) {
+
+  .title {
+    font-size: 38px;
+  }
+
+  .paragraphs .paragraph {
+    font-size: 15px;
+    line-height: 23px;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .textSection {
+  width:100%;
+  }
+
+  .subtitle {
+    font-size: 14px;
+  }
+
+  .title {
+    font-size: 32px;
+    margin-bottom: 25px;
+  }
+
+  .paragraphs .paragraph {
+    font-size: 14px;
+    line-height: 22px;
+  }
+}
+
+@media (max-width: 768px) {
+  .contentWrapper {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .subtitle {
+    font-size: 12px;
+  }
+
+  .title {
+    font-size: 26px;
+    margin-bottom: 20px;
+  }
+
+  .paragraphs .paragraph {
+    font-size: 13px;
+    line-height: 20px;
+  }
+}
+
+// Our Leadership page specific styles
+.leadershipSection {
+  background-color: #ffffff;
+}
+
+.visionariesSection {
+  background-color: #f5f4f1;
+  position: relative;
+}
+
+.headerSection {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: flex-end;
+  margin-top:-12px;
+
+  h2 {
+    max-width: 500px;
+  }
+}
+
+.headerLeft {
+  .main_title {
+    margin: 0;
+  }
+}
+
+.headerRight {
+  position: relative;
+  p {
+    max-width: 530px;
+    margin-left: auto;
+
+    @include max(768) {
+      margin-left: unset;
+    }
+  }
+}
+
+.teamGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 74px;
+}
+
+.header_bottom_space {
+  margin-bottom:50px;
+}
+
+@media (max-width: 1440px) {
+  .teamGrid {
+    gap: 60px;
+  }
+
+  .header_bottom_space {
+  margin-bottom:42px;
+}
+}
+
+// Responsive Design
+@media (max-width: 1024px) {
+  .headerSection {
+    gap: 38px;
+    // margin-bottom: 60px;
+  }
+
+  .headerRight p {
+    font-size: 16px;
+    line-height: 26px;
+  }
+
+  .teamGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .header_bottom_space {
+  margin-bottom:38px;
+}
+}
+
+@media (max-width: 768px) {
+  .headerSection {
+    grid-template-columns: 1fr;
+    gap: 17px;
+    margin-top:0px;
+  }
+
+  .headerRight {
+    p {
+      font-size: 15px;
+      line-height: 24px;
+    }
+
+    .greenAccent {
+      width: 40px;
+      height: 40px;
+      top: -15px;
+      right: -15px;
+    }
+  }
+
+  .header_bottom_space {
+  margin-bottom:32px;
+}
+}
+
+@media (max-width: 540px) {
+  .teamGrid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .header_bottom_space {
+  margin-bottom:24px;
+}
+}
+
+@media (max-width: 480px) {
+  .headerSection {
+    gap: 25px;
+  }
+
+  .headerRight {
+    p {
+      font-size: 14px;
+      line-height: 22px;
+    }
+
+    .greenAccent {
+      width: 30px;
+      height: 30px;
+      top: -10px;
+      right: -10px;
+    }
+  }
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 80px;
+
+  .main_title {
+    margin-bottom: 20px;
+  }
+}
+
+.sectionDescription {
+  font-size: 18px;
+  line-height: 28px;
+  color: #666666;
+  max-width: 800px;
+  margin: 0 auto;
+  font-family: "MadaniArabic", sans-serif;
+}
+
+.leadershipGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+  margin-top: 60px;
+}
+
+.leaderCard {
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  // &:hover {
+  //   transform: translateY(-10px);
+  //   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  // }
+}
+
+.leaderImage {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+
+  .portrait {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  // &:hover .portrait {
+  //   transform: scale(1.05);
+  // }
+}
+
+.leaderInfo {
+  padding: 30px;
+}
+
+.leaderName {
+  font-size: 24px;
+  font-weight: 700;
+  color: #222423;
+  margin: 0 0 8px 0;
+  font-family: "MadaniArabic", sans-serif;
+}
+
+.leaderPosition {
+  font-size: 16px;
+  color: #e4002b;
+  font-weight: 600;
+  margin: 0 0 15px 0;
+  font-family: "MadaniArabic", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.leaderBio {
+  font-size: 14px;
+  line-height: 22px;
+  color: #666666;
+  margin: 0;
+  font-family: "MadaniArabic", sans-serif;
+}
+
+// Responsive Design
+@media (max-width: 1024px) {
+  .leadershipGrid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+  }
+
+  .sectionHeader {
+    margin-bottom: 60px;
+  }
+
+  .sectionDescription {
+    font-size: 16px;
+    line-height: 26px;
+  }
+}
+
+@media (max-width: 768px) {
+  .leadershipSection {
+    padding: 80px 0;
+  }
+
+  .sectionHeader {
+    margin-bottom: 50px;
+  }
+
+  .leadershipGrid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    margin-top: 40px;
+  }
+
+  .leaderCard {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .leaderImage {
+    height: 250px;
+  }
+
+  .leaderInfo {
+    padding: 25px;
+  }
+
+  .leaderName {
+    font-size: 22px;
+  }
+
+  .leaderPosition {
+    font-size: 15px;
+  }
+
+  .leaderBio {
+    font-size: 13px;
+    line-height: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .leadershipSection {
+    padding: 60px 0;
+  }
+
+  .sectionHeader {
+    margin-bottom: 40px;
+  }
+
+  .leadershipGrid {
+    gap: 20px;
+    margin-top: 30px;
+  }
+
+  .leaderImage {
+    height: 200px;
+  }
+
+  .leaderInfo {
+    padding: 20px;
+  }
+
+  .leaderName {
+    font-size: 20px;
+  }
+
+  .leaderPosition {
+    font-size: 14px;
+  }
+
+  .leaderBio {
+    font-size: 12px;
+    line-height: 18px;
+  }
+}
+
+.green_triangle {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-top: 180px solid #00C48D;
+  border-left: 180px solid transparent;
+  z-index: 1;
+
+  @include max(1440) {
+    border-top: 120px solid #00C48D;
+    border-left: 120px solid transparent;
+  }
+
+  @include max(768) {
+    border-top: 100px solid #00C48D;
+    border-left: 100px solid transparent;
+  }
+
+  @include max(480) {
+    border-top: 60px solid #00C48D;
+    border-left: 60px solid transparent;
+  }
+}

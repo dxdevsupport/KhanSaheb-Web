@@ -1,0 +1,125 @@
+.socialMediaSection {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.container {
+  width: 100%;
+  max-width: 100%;
+}
+
+.socialSwiper {
+  width: 100%;
+  height: auto;
+
+  .swiper-wrapper {
+    transition-timing-function: linear !important;
+  }
+}
+
+.socialSlide {
+  width: auto;
+  height: auto;
+
+  &:hover {
+    .postImage {
+      transform: scale(1.1);
+    }
+  }
+}
+
+.postContainer {
+  position: relative;
+  height: 439px;
+  width: 100%;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+
+  @media (max-width: 768px) {
+    height: 380px;
+  }
+}
+
+.postImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  object-position: top left;
+  transition: transform 0.3s ease;
+}
+
+.platformIcon {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 43px;
+  height: 43px;
+  border-radius: 50%;
+  border: 1px solid #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+
+  span {
+    font-size: 20px;
+    transition: color 0.3s ease;
+
+    @media (max-width: 1024px) {
+      font-size: 15px;
+    }
+
+    @media (max-width: 768px) {
+      font-size: 13px;
+    }
+  }
+}
+
+// Responsive Design
+// @media (max-width: 1200px) {
+//   .postContainer {
+//     height: 250px;
+//   }
+// }
+
+@media (max-width: 992px) {
+  .socialMediaSection {
+    padding-top: 40px;
+  }
+
+  // .postContainer {
+  //   height: 250px;
+  // }
+}
+
+@media (max-width: 768px) {
+  .socialMediaSection {
+    padding-top: 0px;
+  }
+
+  .platformIcon {
+    width: 25px;
+    height: 25px;
+    top: 10px;
+    right: 10px;
+
+    i {
+      font-size: 14px;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  //   .postContainer {
+  //   height: 300px;
+  // }
+
+  .platformIcon {
+    i {
+      font-size: 10px;
+    }
+  }
+}

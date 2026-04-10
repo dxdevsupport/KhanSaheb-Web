@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "title": "Delano Dubai And Banyan Tree At Bluewaters",
+    "image": "/images/project-01.png",
+    "tags": ["Interiors", "MEP", "Joinery"],
+    "slug": "delano-dubai-and-banyan-tree-at-bluewaters"
+  },
+  {
+    "id": 2,
+    "title": "One Zaabeel Link Bridge",
+    "image": "/images/project-02.png",
+    "tags": ["Interiors", "MEP", "Joinery"],
+    "slug": "one-zaabeel-link-bridge"
+  },
+  {
+    "id": 3,
+    "title": "Bob Al Shams Refurbishment",
+    "image":"/images/project-03.png",
+    "tags": ["Interiors", "MEP", "Joinery"],
+    "slug": "bob-al-shams-refurbishment"
+  },
+  {
+    "id": 4,
+    "title": "Luxury Resort Project",
+    "image": "/images/project-02.png",
+    "tags": ["Interiors", "MEP", "Joinery"],
+    "slug": "luxury-resort-project"
+  },
+  {
+    "id": 5,
+    "title": "Commercial Tower Fit-Out",
+    "image": "/images/project-03.png",
+    "tags": ["Interiors", "MEP", "Joinery"],
+    "slug": "commercial-tower-fit-out"
+  },
+  {
+    "id": 6,
+    "title": "Residential Complex",
+    "image": "/images/project-01.png",
+    "tags": ["Interiors", "MEP", "Joinery"],
+    "slug": "residential-complex"
+  }
+]

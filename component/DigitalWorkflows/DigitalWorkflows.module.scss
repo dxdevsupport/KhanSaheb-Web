@@ -1,0 +1,262 @@
+@import "@/styles/mixins";
+@import "@/styles/variable";
+
+.digitalWorkflows {
+  background: #e40032;
+  position: relative;
+  // padding: 80px 0px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  transition: background-color 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+
+  @media #{$media-768} {
+    min-height: auto;
+  }
+
+  .contentWrapper {
+    position: relative;
+  }
+
+  .headerSection {
+    margin-top:-12px;
+
+    .mainTitle {
+      color: #ffffff;
+      font-weight: 500;
+    }
+
+    p {
+      color: #ffffff;
+      font-size: 16px;
+      line-height: 1.6;
+      @include max(1440) {
+        font-size: 14px;
+      }
+    }
+  }
+
+  .workflowsGrid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 40px;
+
+    @include max(1200) {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+
+    @include max(768) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    @include max(480) {
+      grid-template-columns: 1fr;
+      gap: 15px;
+    }
+  }
+
+  .fourGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+
+    @include max(1024) {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    @include max(768) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    @include max(480) {
+      grid-template-columns: 1fr;
+      gap: 15px;
+    }
+  }
+
+  .workflowItem {
+    padding-block:24px 19px;
+    padding-inline:22px;
+    border: 1px solid #fff;
+    transition: all 0.01s ease-in-out;
+    transition-duration: 0.4s;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    transition-duration: 0.3s !important;
+
+    @include max(1440) {
+      padding-block:20px 15px;
+      padding-inline:18px;
+    }
+
+    &:hover {
+      background-color: #ffffff;
+    }
+
+    .workflowIcon {
+      height: 65px;
+      margin-bottom: 15px;
+
+      @media #{$media-1440} {
+        height: 50px;
+      }
+
+      @media #{$media-768} {
+        height: 45px;
+      }
+
+      img {
+        transition: transform 0.5s ease;
+        height: 100%;
+        width: max-content;
+        object-fit: contain;
+      }
+    }
+
+    &:hover .workflowIcon img {
+      filter: brightness(0) saturate(100%) invert(11%) sepia(100%)
+        saturate(7479%) hue-rotate(341deg) brightness(89%) contrast(101%);
+    }
+
+    .workflowTitle {
+      font-size: 18px;
+      color: #ffffff;
+      line-height: 22px;
+      margin: 0;
+      transition: color 0.15s ease;
+
+      @include max(1440) {
+        font-size: 16px;
+      }
+
+      @include max(768) {
+        font-size: 14px;
+      }
+    }
+
+    &:hover .workflowTitle {
+      color: #e40032;
+    }
+  }
+
+  .conclusionSection {
+    text-align: center;
+    margin-top: 35px;
+
+    .conclusion {
+      font-size: 16px;
+      color: #ffffff;
+      line-height: 1.6;
+      margin: 0;
+      max-width: 1138px;
+      margin: 0 auto;
+      
+
+
+      @include max(1440) {
+        font-size: 14px;
+      }
+
+       @include max(768) {
+        text-align: left;
+       }
+    }
+  }
+
+  // Responsive Design
+  @include max(1024) {
+    padding: 60px 0;
+
+    .headerSection {
+      margin-bottom: 40px;
+      margin-top:0px;
+    }
+  }
+
+  @include max(768) {
+    padding: 50px 0;
+
+    .headerSection {
+      margin-bottom: 30px;
+    }
+  }
+
+  @include max(480) {
+    padding: 40px 0;
+
+    .workflowItem {
+      padding: 15px;
+
+    }
+  }
+}
+
+.greenTriangle {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-bottom: 150px solid #00C48D;
+  border-left: 150px solid transparent;
+  z-index: 10;
+
+  @include max(1440) {
+    border-bottom: 80px solid #00C48D;
+    border-left: 80px solid transparent;
+  }
+
+  @include max(540) {
+    border-bottom: 60px solid #00C48D;
+    border-left: 60px solid transparent;
+  }
+}
+
+// Dark mode styles when parent has darkModeSection class
+// :global(.darkModeSection) .digitalWorkflows {
+//   background: #222423;
+//   transition: background-color 1s cubic-bezier(0.4, 0, 0.2, 1);
+
+//   .headerSection {
+//     .mainTitle,
+//     :global(.main_title) {
+//       color: #ffffff !important;
+//       transition: color 1s cubic-bezier(0.4, 0, 0.2, 1);
+//     }
+
+//     p {
+//       color: #ffffff !important;
+//       transition: color 1s cubic-bezier(0.4, 0, 0.2, 1);
+//     }
+//   }
+
+//   .workflowItem {
+//     border-color: rgba(255, 255, 255, 0.3);
+
+//     .workflowTitle {
+//       color: #ffffff;
+//       transition: color 1s cubic-bezier(0.4, 0, 0.2, 1);
+//     }
+
+//     &:hover {
+//       background-color: rgba(255, 255, 255, 0.1);
+
+//       .workflowTitle {
+//         color: #ffffff;
+//       }
+//     }
+//   }
+
+//   .conclusionSection {
+//     .conclusion {
+//       color: #ffffff;
+//       transition: color 1s cubic-bezier(0.4, 0, 0.2, 1);
+//     }
+//   }
+// }

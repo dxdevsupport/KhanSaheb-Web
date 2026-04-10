@@ -1,0 +1,208 @@
+@import "@/styles/mixins";
+
+.awardsSection {
+  padding: 120px 0;
+  background-color: #ffffff;
+}
+
+.headerContent {
+  text-align: left;
+  margin-bottom: 40px;
+
+  p{
+    max-width: 1100px;
+  }
+}
+
+.awardsContent {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 90px;
+  align-items: flex-start;
+
+  @include max(1024) {
+    gap: 60px;
+  }
+
+  @include max(768) {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+.leftColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-height: 700px;
+}
+
+.imageContainer {
+  position: relative;
+  width: 100%;
+  height:605px;
+ overflow: hidden;
+  @include max(768) {
+    height: 300px;
+  }
+}
+
+.awardImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.02);
+  }
+}
+
+.imageCaption {
+  h5 {
+
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 36px;
+    font-family: var(--font-family-semi);
+  }
+}
+
+.rightColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+.awardsList {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.awardItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding:30px 0;
+  border-bottom: 1px solid #E5E5E5;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  &:first-child {
+    padding-top: 0;
+  }
+
+
+  &:hover {
+  
+
+    .awardTitle {
+      color: #E40032;
+    }
+
+    .arrowIcon {
+      background-color: #E40032;
+      color: #ffffff;
+    }
+  }
+
+  // &.active {
+  //   .awardTitle {
+  //     color: #E40032;
+  //   }
+
+  //   .arrowIcon {
+  //     background-color: #E40032;
+  //     color: #ffffff;
+  //   }
+  // }
+}
+
+.awardContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.awardTitle {
+  font-size:17px;
+  line-height: 22px;
+  font-weight: 500;
+  margin: 0;
+  transition: color 0.3s ease;
+
+  @include max(768) {
+    font-size: 18px;
+  }
+}
+
+.awardYear {
+  font-size: 16px;
+  font-weight: 300;
+  margin-top: 12px;
+   span{
+     display: block;
+     &+span{
+      margin-top: 12px;
+     }
+   }
+}
+
+.arrowIcon {
+  width: 47px;
+  height: 47px;
+  border-radius: 50%;
+  background-color: #E40032;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+
+  svg {
+    width: 20px;
+    height: 20px;
+    color: #666666;
+    transition: color 0.3s ease;
+  }
+
+  &:hover {
+    background-color: #E40032;
+    
+    svg {
+      color: #ffffff;
+    }
+  }
+}
+
+// Responsive Design
+@include max(1024) {
+  .awardsSection {
+    padding: 100px 0;
+  }
+}
+
+@include max(768) {
+  .awardsSection {
+    padding: 80px 0;
+  }
+
+  .rightColumn {
+    gap: 30px;
+  }
+}
+
+@include max(480) {
+  .awardsSection {
+    padding: 60px 0;
+  }
+
+  .awardItem {
+    padding: 20px 0;
+  }
+
+  .awardTitle {
+    font-size: 16px;
+  }
+}

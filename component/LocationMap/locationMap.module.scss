@@ -1,0 +1,240 @@
+@import "@/styles/mixins";
+@import "@/styles/variable";
+
+.locationMapContainer {
+  width: 100%;
+  height: 803px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+
+  @media #{$media-768} {
+    height: 400px;
+  }
+
+  @media #{$media-1024} {
+    height: 450px;
+  }
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  font-size: 16px;
+  color: #666;
+  background-color: #f5f5f5;
+}
+
+.infoWindow {
+  background: white;
+  padding: 20px;
+  max-width: 372px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  font-family: inherit;
+  position: relative;
+  max-height: none;
+  overflow: visible;
+  animation: fadeIn 0.3s ease-in-out;
+
+  @media #{$media-768} {
+    max-width: 280px;
+    max-height: none;
+    overflow: visible;
+    padding: 15px;
+  }
+
+  .close_button {
+    background-color: #fff;
+    border: none;
+    outline: none;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+    
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.infoWindowHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  animation: slideIn 0.3s ease-in-out;
+
+  @media #{$media-768} {
+    gap: 15px;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.companyInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.companyName {
+  font-size: 22px;
+  font-weight: 500;
+  color: #e40032;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.position {
+  font-size: 12px;
+  color: #374151;
+  margin: 0;
+  font-weight: 500;
+}
+
+.infoWindowContent {
+  animation: fadeInContent 0.4s ease-in-out;
+}
+
+@keyframes fadeInContent {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.contactItem {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  gap: 22px;
+
+  @media #{$media-768} {
+    margin-bottom: 15px;
+  }
+}
+
+.contactIcon {
+  margin-top: 8px;
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  position: relative;
+
+  @media #{$media-768} {
+    margin-top: 2px;
+    min-width: 16px;
+    height: 16px;
+    width: 16px;
+  }
+}
+
+.contactText {
+  font-size: 18px;
+  color: #222423;
+  line-height: 1.4;
+  word-break: break-word;
+  font-family: "Madani Arabic Light";
+}
+
+.triangle {
+  position: absolute;
+  bottom: -38px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 40px solid transparent;
+  border-right: 40px solid transparent;
+  border-top: 40px solid #fff;
+  filter: drop-shadow(rgba(0, 0, 0, 0.1) 0px 4px 6px -1px)
+    drop-shadow(rgba(0, 0, 0, 0.06) 0px 2px 4px -1px);
+}
+
+// Global styles for Google Maps InfoWindow
+.locationMapContainer :global(.gm-style-iw) {
+  border-radius: 8px !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15) !important;
+  max-height: none !important;
+  overflow: visible !important;
+}
+
+.locationMapContainer :global(.gm-style-iw-c) {
+  padding: 0 !important;
+  border-radius: 8px !important;
+  max-height: none !important;
+  overflow: visible !important;
+}
+
+.locationMapContainer :global(.gm-style-iw-d) {
+  overflow: visible !important;
+  border-radius: 8px !important;
+  max-height: none !important;
+}
+
+.locationMapContainer :global(.gm-style-iw-tc) {
+  display: none !important;
+}
+
+.locationMapContainer :global(.gm-style-iw-chr) {
+  display: none !important;
+}
+
+.locationMapContainer :global(.gm-ui-hover-effect) {
+  display: none !important;
+}
+
+// Responsive adjustments
+@media #{$media-1440} {
+    .contactText {
+    font-size: 16px;
+  }
+
+}
+@media #{$media-768} {
+  .infoWindow {
+    max-width: 260px;
+  }
+
+  .contactItem {
+    gap: 15px;
+  }
+
+  .companyName {
+    font-size: 16px;
+  }
+
+  .position {
+    font-size: 11px;
+  }
+
+  .contactText {
+    font-size: 14px;
+  }
+}

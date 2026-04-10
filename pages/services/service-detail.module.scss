@@ -1,0 +1,99 @@
+@import "@/styles/mixins";
+
+.header_container {
+  background-color: #222423;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  transition: background-color 1s cubic-bezier(0.4, 0, 0.2, 1);
+
+  @include max(1024) {
+    margin-bottom: 60px;
+  }
+
+  @include max(768) {
+    gap: 30px;
+  }
+
+  @include max(600) {
+    margin-bottom: 30px;
+  }
+
+  @include max(480) {
+    gap: 15px;
+  }
+}
+
+.header_content {
+  display: flex;
+  justify-content: space-between;
+  gap: 60px;
+
+  @include max(820) {
+    br {
+      display: none;
+    }
+  }
+
+  @include max(1440) {
+    gap: 50px;
+  }
+
+  @include max(1024) {
+    padding-bottom: 60px;
+  }
+
+  @include max(768) {
+    flex-direction: column-reverse;
+    gap: 0px;
+  }
+
+  @include max(600) {
+    padding-bottom: 30px;
+  }
+
+  h3 {
+    color: #fff;
+    width: 50%;
+    transition: color 1s cubic-bezier(0.4, 0, 0.2, 1);
+
+    @include max(768) {
+      width: 100%;
+    }
+  }
+
+  p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #fff;
+    width: 50%;
+    transition: color 1s cubic-bezier(0.4, 0, 0.2, 1);
+    padding-bottom: 160px;
+    
+    @include max(1440) {
+      font-size: 14px;
+    }
+
+    @include max(1024) {
+      padding-bottom: 60px;
+    }
+
+    @include max(768) {
+      width: 100%;
+      padding-bottom:0px;
+    }
+  }
+}
+
+.progress_section {
+  background-image: url("/images/quote_bg.png");
+  background-size: contain;
+  background-position: left;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.projectsSection {
+  background-color: #fff;
+
+}

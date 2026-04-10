@@ -1,0 +1,183 @@
+.innerBanner {
+  position: relative;
+  min-height: 650px;
+  display: flex;
+  align-items: center;
+  background-color: #1c1c1c;
+
+  .backgroundVideo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+  }
+
+  .backgroundImage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(0, 0, 0, 0.45) 0%,
+      rgba(0, 0, 0, 0.25) 50%,
+      rgba(0, 0, 0, 0.55) 100%
+    );
+    z-index: 1;
+  }
+
+  .container {
+    position: relative;
+    z-index: 2;
+  }
+  
+  .title {
+    font-size: 60px;
+    font-weight: 500;
+    color: #ffffff;
+    line-height: 1.2;
+    margin: 0;
+    text-transform: uppercase;
+  }
+
+  .subtitle {
+    font-size: 20px;
+    color: #ffffff;
+    line-height: 1.6;
+    margin: 20px 0 0 0;
+    font-family: "MadaniArabic", sans-serif;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  }
+
+  .greenTriangle {
+    position: absolute;
+    left: 0px;
+    bottom: -164px;
+    z-index: 3;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 164px 0px 164px 164px;
+    border-color: transparent transparent transparent #00c48d;
+
+    @media (max-width: 1800px) {
+      border-width: 100px 0px 100px 100px;
+      bottom: -100px;
+    }
+
+    @media (max-width: 1650px) {
+      border-width: 90px 0px 90px 90px;
+      bottom: -90px;
+    }
+
+    @media (max-width: 1440px) {
+      border-width: 80px 0px 80px 80px;
+      bottom: -80px;
+    }
+
+    @media (max-width: 1024px) {
+      border-width: 40px 0px 40px 42px;
+      bottom: -40px;
+    }
+
+    @media (max-width: 1024px) {
+      display: none;
+    }
+  }
+
+  .redTriangle {
+    position: absolute;
+    top: -10px;
+    right: 0;
+    z-index: 3;
+
+    svg {
+      position: absolute;
+      top: 0;
+      right: 0;
+      fill: #d1002e;
+      mix-blend-mode: hard-light;
+      opacity: 0.8;
+      width: 385px;
+      height: 450px;
+    }
+  }
+
+  // Responsive Design
+
+  @media (max-width: 1440px) {
+    min-height: 500px;
+
+    .title {
+      font-size: 56px;
+    }
+
+    .redTriangle {
+      svg {
+        width: 277px;
+        height: 320px;
+      }
+    }
+  }
+
+  @media (max-width: 1200px) {
+    .redTriangle {
+      svg {
+        width: 240px;
+        height: 278px;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    min-height: 55vh;
+
+    .title {
+      font-size: 50px;
+      letter-spacing: 1px;
+    }
+
+    .subtitle {
+      font-size: 16px;
+    }
+
+    .redTriangle {
+      svg {
+        width: 150px;
+        height: 174px;
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    .title {
+      font-size: 28px;
+    }
+
+    // .redTriangle {
+    //   border-left: 80px solid transparent;
+    //   border-top: 80px solid rgba(168, 0, 37, 0.8);
+    // }
+  }
+}
+
+.view_height_banner {
+  height: 100vh !important;
+
+  @media (max-width: 1200px) {
+    height: 55vh !important;
+  }
+}

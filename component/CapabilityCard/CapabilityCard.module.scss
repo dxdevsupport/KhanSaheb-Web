@@ -1,0 +1,235 @@
+@import "@/styles/mixins";
+
+.capabilityCard {
+	position: relative;
+	overflow: hidden;
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+	height: 554px;
+
+	// Hover effect only on desktop (above 1200px)
+	@media (min-width: 1201px) {
+		&:hover {
+			// transform: translateY(-5px);
+			// box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+			.content {
+				transform: translateY(0); // Bring content back up to show button
+				.exploreButton {
+					opacity: 1;
+					pointer-events: auto; // Enable pointer events when visible
+				}
+			}
+			.greenAccent {
+				border-top: 100px solid #00c48d;
+				border-right: 100px solid transparent;
+			}
+		}
+	}
+}
+
+@keyframes slideInUp {
+	from {
+		opacity: 0;
+		transform: translateY(30px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.imageWrapper {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+
+	// Overlay as pseudo-element
+	&::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: linear-gradient(
+			to top,
+			rgba(0, 0, 0, 0.8) 0%,
+			rgba(0, 0, 0, 0.6) 30%,
+			rgba(0, 0, 0, 0.3) 60%,
+			transparent 100%
+		);
+		z-index: 1;
+		pointer-events: none;
+	}
+}
+
+.cardImage {
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+	transition: transform 0.5s ease;
+}
+
+
+.greenAccent {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 0;
+	height: 0;
+	border-top: 60px solid #00c48d;
+	border-right: 60px solid transparent;
+	z-index: 2;
+	transition: all 0.5s ease-in-out;
+}
+
+.content {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	padding: 0 30px 30px 30px;
+	color: #ffffff;
+	z-index: 3;
+	text-align: left;
+	transition: transform 0.5s ease;
+
+	// Initially translate down by 45px to hide button on desktop
+	@media (min-width: 1201px) {
+		transform: translateY(75px);
+	}
+
+	// On mobile, don't translate (button always visible)
+	@media (max-width: 1200px) {
+		transform: translateY(0);
+	}
+
+	.textContent {
+		padding-top: 0;
+	}
+
+	p {
+		color: #ffffff;
+		margin-bottom: 0;
+		font-weight: 400;
+		// word-break: break-word;
+		max-width: 100%;
+		word-wrap: break-word;
+		overflow-wrap: break-word;
+	}
+
+	.exploreButton {
+		margin-top: 45px; // 45px gap between text and button
+		text-transform: uppercase;
+		transition: opacity 0.5s ease;
+
+		// Hide button initially on desktop (above 1200px)
+		@media (min-width: 1201px) {
+			opacity: 0;
+			pointer-events: none; // Disable pointer events when hidden
+		}
+
+		// Always show button on small devices (below 1200px)
+		@media (max-width: 1200px) {
+			opacity: 1;
+			pointer-events: auto;
+		}
+
+	@media (max-width: 1200px) {
+		margin-top: 30px;
+	}
+	}
+}
+
+@keyframes fadeInUp {
+	from {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.title {
+	font-size: 30px;
+	font-weight: 500;
+	margin-bottom: 15px;
+	line-height: 1.2;
+	color: #ffffff;
+
+	@include max(768) {
+		font-size: 20px;
+	}
+}
+
+@keyframes slideInLeft {
+	from {
+		opacity: 0;
+		transform: translateX(-30px);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+.exploreButton {
+	// Padding and initial state are controlled in .content .exploreButton
+	animation: none; // Remove initial animation since we're using hover transition
+
+	&:hover {
+		background-color: #00c48d;
+		border-color: #00c48d;
+		color: #ffffff;
+		// transform: scale(1.05);
+		transition: all 0.3s ease;
+	}
+}
+
+// @keyframes fadeIn {
+//   from {
+//     opacity: 0;
+//   }
+//   to {
+//     opacity: 1;
+//   }
+// }
+
+// Responsive Design
+
+@media (max-width: 768px) {
+	.capabilityCard {
+		height: 380px;
+	}
+
+	.exploreButton {
+		margin-top: 30px;
+	}
+}
+
+@media (max-width: 480px) {
+	.capabilityCard {
+		height: 350px;
+	}
+
+	// .content {
+	// 	padding: 20px;
+	// 	transform: translateY(100px) !important;
+	// }
+
+	.title {
+		font-size: 18px;
+	}
+
+	.description {
+		font-size: 13px;
+		margin-bottom: 20px;
+	}
+	
+	.greenAccent {
+		border-top: 40px solid #00c48d;
+		border-right: 40px solid transparent;
+	}
+}

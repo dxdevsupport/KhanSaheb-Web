@@ -1,0 +1,233 @@
+@import "@/styles/mixins";
+
+.joinerySection {
+  padding: 120px 0;
+  background-color: #ffffff;
+
+  .joineryWrapper {
+    display: grid;
+    grid-template-columns: 1fr 1.074fr;
+    gap: 120px;
+    align-items: center;
+
+    @include max(1024) {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+  }
+
+  .leftColumn {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+
+    .textContent {
+      .tag {
+        margin-bottom: 20px;
+      }
+
+      .main_title {
+        padding-right: 70px;
+        margin-bottom: 30px;
+
+        @include max(768) {
+          font-size: 36px;
+        }
+
+        @include max(480) {
+          font-size: 28px;
+        }
+      }
+
+      p {
+        margin-bottom: 25px;
+
+        @include max(768) {
+          font-size: 16px;
+        }
+      }
+    }
+    .imageLeft{
+      position: relative;
+      width: 100%;
+      height: 416px;
+      img{
+        object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+    }
+    .videoContainer {
+      position: relative;
+      width: 100%;
+      height:418px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+
+      @include max(768) {
+        height: 250px;
+      }
+    }
+
+    .imageContainer {
+      position: relative;
+      width: 100%;
+      height: 418px;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+
+      .leftImage {
+        object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+
+      &:hover .leftImage {
+        transform: scale(1.02);
+      }
+
+      @include max(768) {
+        height: 250px;
+      }
+    }
+
+    .video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .videoCover {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 2;
+      transition: opacity 0.3s ease;
+
+      .coverImage {
+        object-fit: cover;
+      }
+    }
+
+    .videoOverlay {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 25%;
+      height: 25%;
+      background: linear-gradient(135deg, #E4002B, #C40024);
+      opacity: 0.9;
+      z-index: 3;
+      clip-path: polygon(100% 0, 0 0, 100% 100%);
+    }
+
+    .volumeButton {
+      position: absolute;
+      bottom: 103px;
+      right: 25px;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      z-index: 3;
+      transition: all 0.3s ease;
+
+      img {
+        filter: brightness(0) invert(1);
+        transition: opacity 0.3s ease;
+      }
+
+      &:hover img {
+        opacity: 0.8;
+      }
+    }
+  }
+
+  .rightColumn {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    .detailImage {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+
+      .craftImage {
+        object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+
+      &:hover .craftImage {
+        transform: scale(1.02);
+      }
+
+      @include max(768) {
+        height: 250px !important;
+      }
+    }
+
+    .bottomContent {
+      p {
+        margin-bottom: 25px;
+        &:last-child {
+          margin-bottom: 0;
+        }
+        @include max(768) {
+          font-size: 15px;
+        }
+      }
+    }
+  }
+
+  // Responsive Design
+  @include max(1024) {
+    .leftColumn {
+      order: 1;
+    }
+
+    .rightColumn {
+      order: 2;
+    }
+  }
+
+  @include max(768) {
+    padding: 80px 0;
+
+    .joineryWrapper {
+      gap: 30px;
+    }
+
+    .leftColumn {
+      gap: 30px;
+    }
+
+    .rightColumn {
+      gap: 25px;
+    }
+  }
+
+  @include max(480) {
+    padding: 60px 0;
+
+    .joineryWrapper {
+      gap: 25px;
+    }
+
+    .leftColumn {
+      gap: 25px;
+
+      .textContent {
+        .tag {
+          font-size: 12px;
+          padding: 6px 12px;
+        }
+      }
+    }
+
+    .rightColumn {
+      gap: 20px;
+    }
+  }
+}

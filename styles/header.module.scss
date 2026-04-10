@@ -1,0 +1,38 @@
+@import "variable", "base";
+ .header{ width: 100%; padding-top: 20px; padding-bottom: 20px; position: absolute; width: 100%; left: 0; top: 50px; z-index: 100;}
+ .marqui{ background: #5e45ff;}
+
+
+.marquee{
+    display: flex; 
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background: #5e45ff;
+    color: #fff;
+    font-size: 16px;
+    position: relative;
+    text-align: center;
+    white-space: nowrap;
+    font-weight: 400;
+    line-height: 20px;
+    
+  }
+
+  .marquee_item{
+    border-right: solid 1px #fff !important; padding-left: 15px; padding-right: 15px;
+    p{ color: $white;
+      
+      span{
+        font-family: var(--segoeUiSemibold);
+      }
+    }
+  }
+
+  .about_hero__marquee_row{ display: flex; position: relative; white-space: nowrap;
+    .marq_block{
+     
+    }
+  }
+
+
+  .logo_block{ width:10.4%}

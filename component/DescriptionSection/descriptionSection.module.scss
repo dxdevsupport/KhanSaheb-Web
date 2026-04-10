@@ -1,0 +1,263 @@
+@import "@/styles/mixins";
+@import "@/styles/variable";
+
+.descriptionSection {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  // min-height: 520px;
+  gap: 60px;
+  background: transparent;
+  transition: background-color 1.8s cubic-bezier(0.25, 0.1, 0.25, 1);
+
+  @include max(1440) {
+    gap: 50px;
+  }
+
+  @include max(1024) {
+    gap: 10px;
+  }
+
+  .image_container {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 50%;
+    align-self: stretch;
+    min-height: 100%;
+    // height: calc(100% + 80px);
+    height: 671px;
+    display: flex;
+    margin-top: -80px;
+    // align-items: center;
+    // transform: translateY(-80px);
+    // justify-content: center;
+
+    // @include max(1440) {
+    // 	max-height: calc(100% - 160px);
+    // }
+
+    &.smallImage {
+      height: 471px !important;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+  }
+
+  .content_wrapper {
+    // margin-left: 50%;
+    width: 50%;
+    background: white;
+    display: flex;
+    align-items: center;
+    transition: background-color 1.8s cubic-bezier(0.25, 0.1, 0.25, 1);
+    padding-right: 60px;
+
+    @include min(1601) {
+      padding-right: clamp(60px, calc((100vw - 1520px) / 2 + 15px), 200px);
+    }
+
+    @include min-max(1441, 1600) {
+      padding-right: clamp(60px, calc((100vw - 1300px) / 2 + 15px), 200px);
+    }
+
+    @include min-max(1024, 1440) {
+      padding-right: clamp(40px, calc(3vw + 15px), 150px);
+    }
+
+    @include max(1024) {
+      padding-left: clamp(20px, calc(3vw + 15px), 100px);
+      width: 100%;
+      padding-right: clamp(20px, calc(3vw + 15px), 100px);
+    }
+
+    @include max(768) {
+      padding-inline: 30px;
+    }
+
+    // @include max(1024) {
+    // 	padding-right: 40px;
+    // }
+  }
+
+  .description_container {
+    width: 100%;
+    // padding-top: 80px;
+    // padding-inline: 60px;
+
+    // @include max(1440) {
+    // 	padding-inline: 50px;
+    // }
+
+    // @include max(1200) {
+    // 	padding-inline: 40px;
+    // }
+  }
+
+  .content {
+    max-width: 100%;
+  }
+
+  .title {
+    font-size: 50px;
+    font-weight: 500;
+    color: #e4002b;
+    margin-bottom: 24px;
+    line-height: 1.2;
+
+    @media (max-width: 1440px) {
+      font-size: 40px;
+    }
+
+    @media (max-width: 1024px) {
+      font-size: 30px;
+    }
+
+    @media (max-width: 768px) {
+      font-size: 25px;
+    }
+  }
+
+  .description_text {
+    // padding-bottom: 80px;
+
+    // @include max(1200) {
+    // 	padding-bottom: 40px;
+    // }
+
+    p {
+      font-size: 16px;
+      line-height: 1.6;
+      color: #222423 !important;
+      margin-bottom: 16px;
+      transition: color 1s cubic-bezier(0.4, 0, 0.2, 1);
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  @media (max-width: 1440px) {
+    // .description_container {
+    // 	padding-top: 60px;
+    // }
+
+    .description_text {
+      p {
+        font-size: 14px;
+      }
+    }
+  }
+
+  // Responsive styles for mobile
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    min-height: auto;
+    margin-bottom: 0px;
+
+    .image_container {
+      width: calc(94% - 30px);
+      height: 400px;
+      margin-top: 0;
+      transform: none;
+      overflow: hidden;
+      margin: 0 auto;
+      padding-inline: 15px;
+      margin-top:-60px;
+      @include max(768) {
+        margin-top:-30px;
+      }
+    }
+
+    .content_wrapper {
+      margin-left: 0;
+    }
+
+    // .description_container {
+    // 	padding-block: 30px 0px;
+    // 	padding-inline: 20px;
+    // }
+
+    .title {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .description_text {
+      p {
+        text-align: left;
+      }
+    }
+
+    .description_container {
+      padding-top: 20px !important;
+
+      @include max(480) {
+        padding-top: 10px !important;
+      }
+    }
+  }
+}
+
+// Ensure white background when inside darkModeSection but NOT in view
+:global(.darkModeSection) .descriptionSection:not(.inView) {
+  background-color: transparent;
+
+  .content_wrapper {
+    background-color: white;
+  }
+}
+
+// Dark mode styles when section is in viewport (only when NOT inside darkModeSection parent)
+// .descriptionSection.inView {
+// 	// background-color: #222423;
+// 	transition: background-color 1.8s cubic-bezier(0.25, 0.1, 0.25, 1);
+
+// 	.content_wrapper {
+// 		background-color: #222423;
+// 		transition: background-color 1.8s cubic-bezier(0.25, 0.1, 0.25, 1);
+// 	}
+
+// 	.title {
+// 		color: #ffffff;
+// 		transition: color 1s cubic-bezier(0.4, 0, 0.2, 1);
+// 	}
+
+// 	.description_text {
+// 		p {
+// 			color: #ffffff !important;
+// 			transition: color 1s cubic-bezier(0.4, 0, 0.2, 1);
+// 		}
+// 	}
+// }
+
+// Override: when inside darkModeSection, only apply dark mode when ALSO in view
+:global(.darkModeSection) .descriptionSection.inView {
+  background-color: #222423;
+  transition: background-color 1.8s cubic-bezier(0.25, 0.1, 0.25, 1);
+
+  .content_wrapper {
+    background-color: #222423;
+    transition: background-color 1.8s cubic-bezier(0.25, 0.1, 0.25, 1);
+  }
+
+  .title {
+    color: #ffffff;
+    transition: color 1s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .description_text {
+    p {
+      color: #ffffff !important;
+      transition: color 1s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+  }
+}

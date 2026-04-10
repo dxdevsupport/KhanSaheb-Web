@@ -1,0 +1,310 @@
+@import "@/styles/mixins";
+
+.videoContainer {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.videoWrapper {
+  position: relative;
+  width: 100%;
+  height: 646px;
+  background: #000;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+
+  &:hover {
+    .playButtonOverlay.playing {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  // Hide background image when video is playing
+  &.videoPlaying {
+    background-image: none !important;
+  }
+}
+
+.video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: pointer;
+  background: transparent;
+  z-index: 1;
+  
+  // iOS Safari fix: Ensure poster is visible
+  &::-webkit-media-controls-poster {
+    display: block !important;
+    object-fit: cover;
+  }
+}
+
+.playButtonOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: opacity 0.5s ease, visibility 0.5s ease, background 0.3s ease;
+  z-index: 2;
+  opacity: 1;
+  visibility: visible;
+
+  &.playing {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+  }
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.3);
+
+    .playButton {
+      transform: scale(1.1);
+    }
+  }
+}
+
+.playButton {
+  width: 120px;
+  height: 120px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  filter: blur(27);
+
+  @media (max-width: 1600px) {
+    width: 100px;
+    height: 100px;
+  }
+
+  @media (max-width: 1200px) {
+    width: 80px;
+    height: 80px;
+  }
+
+  @media (max-width: 768px) {
+    width: 60px;
+    height: 60px;
+  }
+
+  @media (max-width: 480px) {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+.playIcon {
+  width: 0;
+  height: 0;
+  border-left: 38px solid #e40032;
+  border-top: 22px solid transparent;
+  border-bottom: 22px solid transparent;
+  margin-left: 4px;
+  transition: all 0.3s ease;
+
+  @media (max-width: 1600px) {
+    border-left: 36px solid #e40032;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+  }
+
+  @media (max-width: 1200px) {
+    border-left: 32px solid #e40032;
+    border-top: 18px solid transparent;
+    border-bottom: 18px solid transparent;
+  }
+
+  @media (max-width: 768px) {
+    border-left: 24px solid #e40032;
+    border-top: 14px solid transparent;
+    border-bottom: 14px solid transparent;
+  }
+
+  @media (max-width: 480px) {
+    border-left: 15px solid #e40032;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+  }
+}
+
+.pauseIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+
+  @media (max-width: 768px) {
+    gap: 4px;
+  }
+
+  @media (max-width: 480px) {
+    gap: 3px;
+  }
+}
+
+.pauseBar {
+  width: 8px;
+  height: 32px;
+  background: #e40032;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+
+  @media (max-width: 768px) {
+    width: 6px;
+    height: 24px;
+  }
+
+  @media (max-width: 480px) {
+    width: 5px;
+    height: 18px;
+  }
+}
+
+// Responsive design
+@media (max-width: 1200px) {
+  .videoContainer {
+    max-width: 100%;
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .videoContainer {
+    padding: 0 15px;
+  }
+
+  .videoWrapper {
+    height: 400px;
+  }
+}
+
+@media (max-width: 480px) {
+  .videoContainer {
+    padding: 0 10px;
+  }
+
+  .videoWrapper {
+    height: 300px;
+  }
+}
+
+// Loading state
+.videoContainer.loading {
+  .playButtonOverlay {
+    background: #ffffff;
+  }
+
+  .playButton {
+    opacity: 0.7;
+  }
+}
+
+// Top right corner red triangle
+.topRightTriangle {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-left: 150px solid transparent;
+  border-top: 150px solid #e40032;
+  z-index: 1;
+  opacity: 0.8;
+
+  @media (max-width: 768px) {
+    border-left: 120px solid transparent;
+    border-top: 120px solid #e40032;
+  }
+
+  @media (max-width: 480px) {
+    border-left: 80px solid transparent;
+    border-top: 80px solid #e40032;
+  }
+}
+
+.topLeftTriangle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-right: 380px solid transparent;
+  border-top: 380px solid #a80025;
+  z-index: 1;
+  opacity: 0.4;
+
+  @media (max-width: 1024px) {
+    border-right: 120px solid transparent;
+    border-top: 120px solid #e40032;
+  }
+}
+
+// Error overlay
+.errorOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 3;
+}
+
+.errorMessage {
+  text-align: center;
+  color: white;
+
+  p {
+    margin: 8px 0;
+    font-size: 16px;
+
+    &:first-child {
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    &:last-child {
+      font-size: 14px;
+      opacity: 0.8;
+    }
+  }
+}
+
+// Focus states for accessibility
+.playButtonOverlay:focus {
+  outline: 3px solid #e74c3c;
+  outline-offset: 2px;
+}
+
+.video:focus {
+  outline: 3px solid #e74c3c;
+  outline-offset: 2px;
+}
+
+.full_height {
+  height: calc(100vh - 123px);
+  @media (max-width: 1024px) {
+    height: 50vh;
+  }
+}

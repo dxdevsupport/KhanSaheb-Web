@@ -1,0 +1,291 @@
+@import "@/styles/mixins";
+@import "@/styles/variable";
+
+.career_section {
+  background-color: #f5f4f1;
+  padding-block: 80px 40px;
+  position: relative;
+  overflow: hidden;
+
+  @include max(1440) {
+    padding-block: 60px 30px;
+  }
+
+  @include max(768) {
+    padding-block: 40px 0;
+    padding-bottom: 20px;
+  }
+}
+
+.tab_container {
+  display: flex;
+  gap: 40px;
+  overflow: hidden;
+
+  @include max(1440) {
+    gap: 30px;
+  }
+
+  @include max(768) {
+    gap: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @include max(540) {
+    grid-template-columns: 1fr;
+    gap:10px;
+  }
+}
+
+.tab_button {
+  color: #222423;
+  border: 1px solid #c2c2c2;
+  cursor: pointer;
+
+  &.active {
+    color: #00c48d;
+    border: 1px solid #00c48d;
+    z-index: 1;
+  }
+
+  @include max(768) {
+    width: 100%;
+  }
+
+  @include max(480) {
+    padding: 14px 16px;
+    font-size: 14px;
+  }
+}
+
+.tab_content {
+  min-height: 200px;
+  padding: 40px 0;
+
+  @include max(768) {
+    padding: 30px 0;
+  }
+
+  @include max(480) {
+    padding: 20px 0;
+    min-height: 150px;
+  }
+}
+
+.content_section {
+  padding: 0;
+  background-color: #f5f4f1;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+}
+
+.content_grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  min-height: 600px;
+  overflow: hidden;
+  width: 100%;
+
+  @include max(768) {
+    grid-template-columns: 1fr;
+    gap:0px;
+    min-height: auto;
+  }
+}
+
+.text_panel {
+  background-color:#0BB481;
+  background-image: url("/images/successVector.png");
+  background-position: top left;
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  animation: fadeInRight 0.3s ease-out;
+  padding: 60px;
+
+	// Responsive padding-left to align with container
+	// Calculate based on viewport width and container max-width
+	@include min(1601) {
+		padding-left: clamp(60px, calc((100vw - 1520px) / 2 + 15px), 200px);
+	}
+
+	@include min-max(1441, 1600) {
+		padding-left: clamp(60px, calc((100vw - 1300px) / 2 + 15px), 200px);
+	}
+
+	@include min-max(1201, 1440) {
+		padding-left: clamp(40px, calc(3vw + 15px), 150px);
+	}
+
+  @include max(1200) {
+		padding: 40px;
+		padding-left: 40px;
+	}
+
+	@include max(768) {
+		padding: 40px 30px;
+		order: 2;
+	}
+
+  @include max(480) {
+    padding: 30px;
+    margin-top: -1px;
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.content_title {
+  color: #ffffff;
+  font-size: 34px;
+  font-weight: 500;
+  margin-bottom: 24px;
+  line-height: 1.2;
+
+  @include max(1440) {
+    font-size: 28px;
+  }
+
+  @include max(768) {
+    margin-bottom: 20px;
+  }
+
+  @include max(480) {
+    font-size: 24px;
+    margin-bottom: 16px;
+  }
+}
+
+.content_description {
+  p,
+  > div {
+    color: #ffffff;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 16px;
+    opacity: 0.95;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @include max(1440) {
+      font-size: 14px;
+    }
+  }
+}
+
+.image_panel {
+  position: relative;
+  overflow: hidden;
+  animation: fadeInLeft 0.3s ease-out;
+  background-color: #e0e0e0;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-left: 120px solid transparent;
+    border-top: 120px solid #00c48d;
+    z-index: 3;
+
+    @include max(768) {
+      border-left: 80px solid transparent;
+      border-top: 80px solid #00c48d;
+    }
+  }
+
+  @include max(768) {
+    order: 1;
+    min-height: 300px;
+  }
+
+  @include max(480) {
+    min-height: 250px;
+  }
+}
+
+.shimmer_loader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #e0e0e0 0%, #f0f0f0 50%, #e0e0e0 100%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  z-index: 1;
+
+  @include max(768) {
+    min-height: 300px;
+  }
+
+  @include max(480) {
+    min-height: 250px;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.content_image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  position: relative;
+  z-index: 2;
+  transition: opacity 0.3s ease-in-out;
+
+  &.image_loading {
+    opacity: 0;
+  }
+
+  &.image_loaded {
+    opacity: 1;
+  }
+
+  @include max(768) {
+    height: 300px;
+  }
+
+  @include max(480) {
+    height: 250px;
+  }
+}

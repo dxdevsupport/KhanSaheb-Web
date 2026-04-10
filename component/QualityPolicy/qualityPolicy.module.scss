@@ -1,0 +1,196 @@
+@import "@/styles/mixins";
+@import "@/styles/variable";
+
+.qualityPolicyContainer {
+  width: 100%;
+  height: 635px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+      linear-gradient(90deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
+    z-index: 1;
+  }
+
+  @include max(1440) {
+    height: 580px;
+  }
+
+   @include max(1024) {
+    background-attachment: scroll;
+  }
+
+  @include max(768) {
+    height: 340px;
+  }
+}
+
+.backgroundImage {
+  position: absolute;
+  top: -20%;
+  left: 0;
+  width: 100%;
+  height: 150%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 0;
+  will-change: transform;
+  transform-origin: center center;
+  // Extra height to prevent gaps during parallax movement and scaling
+
+  @include max(1200) {
+    height: 160%;
+  }
+
+  @media (max-width: 768px) {
+    height: 200%;
+  }
+}
+
+.contentOverlay {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100%;
+  z-index: 2;
+}
+
+.textContent {
+  max-width: 50%;
+  color: white;
+  position: relative;
+  z-index: 3;
+
+  @include max(768) {
+    max-width: 100%;
+  }
+}
+
+.title {
+  font-size: 50px;
+  font-weight: 500;
+  margin-bottom: 2rem;
+  line-height: 1.2;
+
+  @include max(768) {
+    font-size: 32px;
+    margin-bottom: 1.5rem;
+  }
+
+  @include max(480) {
+    font-size: 26px;
+  }
+}
+
+.policyList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.policyItem {
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  line-height: 1.6;
+  font-weight: 400;
+  list-style: none;
+
+  &::before {
+    content: "•";
+    position: absolute;
+    left: 8px;
+    top: 55%;
+    transform: translateY(-55%);
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  @include max(1440) {
+    font-size: 14px;
+    margin-bottom: 15px;
+  }
+
+  @include max(768) {
+    margin-bottom: 1rem;
+  }
+}
+
+.redTriangle {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-left: 200px solid transparent;
+  border-bottom: 200px solid rgba(220, 38, 38, 0.6);
+  z-index: 2;
+
+  @media (max-width: 1200px) {
+    border-left: 160px solid transparent;
+    border-bottom: 160px solid rgba(220, 38, 38, 0.6);
+  }
+
+  @media (max-width: 1024px) {
+    border-left: 120px solid transparent;
+    border-bottom: 120px solid rgba(220, 38, 38, 0.6);
+  }
+
+  @media (max-width: 768px) {
+    border-left: 80px solid transparent;
+    border-bottom: 80px solid rgba(220, 38, 38, 0.6);
+  }
+
+  @media (max-width: 480px) {
+    border-left: 60px solid transparent;
+    border-bottom: 60px solid rgba(220, 38, 38, 0.6);
+  }
+}
+
+.greenTriangle {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-right: 150px solid transparent;
+  border-bottom: 150px solid #10b981;
+  z-index: 2;
+
+  @media (max-width: 1200px) {
+    border-right: 120px solid transparent;
+    border-bottom: 120px solid #10b981;
+  }
+
+  @media (max-width: 1024px) {
+    border-right: 100px solid transparent;
+    border-bottom: 100px solid #10b981;
+  }
+
+  @media (max-width: 768px) {
+    border-right: 80px solid transparent;
+    border-bottom: 80px solid #10b981;
+  }
+
+  @media (max-width: 480px) {
+    border-right: 60px solid transparent;
+    border-bottom: 60px solid #10b981;
+  }
+}

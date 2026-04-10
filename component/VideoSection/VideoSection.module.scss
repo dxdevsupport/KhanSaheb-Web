@@ -1,0 +1,169 @@
+.videoSection {
+  position: relative;
+  width: 100%;
+  background-color: #f8f9fa;
+}
+.videoThumbnail {
+  position: relative;
+  width: 100%;
+  height: auto;
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.thumbnailImage {
+  width: 100%;
+  height: 870px;
+  object-fit: cover;
+  display: block;
+}
+
+.playButton {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+// Video Modal Styles
+.videoModal {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999 !important;
+  animation: fadeIn 0.3s ease;
+  cursor: pointer;
+  visibility: visible;
+  opacity: 1;
+  overflow: hidden;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.modalContent {
+  position: relative;
+  width: 90%;
+  max-width: 1000px;
+  height: 70vh;
+  background: #000;
+  border-radius: 8px;
+  overflow: hidden;
+  animation: slideIn 0.3s ease;
+  z-index: 100000;
+  visibility: visible;
+  opacity: 1;
+}
+
+.closeButton {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(0, 0, 0, 0.7);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: background-color 0.3s ease;
+  
+  &:hover {
+    background: rgba(0, 0, 0, 0.9);
+  }
+}
+
+.videoWrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+// Animations
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+// Responsive Design
+@media (max-width: 1200px) {
+  .container {
+    padding: 0 30px;
+  }
+}
+
+@media (max-width: 992px) {
+  .container {
+    padding: 0 25px;
+  }
+  
+  .modalContent {
+    width: 95%;
+    height: 60vh;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 20px;
+  }
+  
+  .playButton {
+    svg {
+      width: 60px;
+      height: 60px;
+    }
+  }
+  
+  .modalContent {
+    width: 98%;
+    height: 50vh;
+  }
+  
+  .closeButton {
+    top: 10px;
+    right: 10px;
+    width: 35px;
+    height: 35px;
+  }
+}
+
+@media (max-width: 576px) {
+  .playButton {
+    svg {
+      width: 50px;
+      height: 50px;
+    }
+  }
+  
+  .modalContent {
+    height: 40vh;
+  }
+}

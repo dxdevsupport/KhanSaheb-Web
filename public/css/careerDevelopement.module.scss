@@ -1,0 +1,271 @@
+@import "@/styles/mixins";
+@import "@/styles/variable";
+
+.header_container {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+
+  @include max(768) {
+    gap: 30px;
+  }
+}
+
+.legacyFuture_section {
+  // background-color: #f5f4f1;
+  position: relative;
+  overflow: hidden;
+  transition: background-color 1.8s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+// Dark mode styles for legacyFuture_section
+.legacyFuture_section.darkMode {
+  background-color: #222423 !important;
+
+  .legacyFuture_text {
+    h2,
+    :global(.main_title) {
+      color: #ffffff !important;
+      transition: color 1s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+  }
+
+  .legacyFuture_description {
+    p,
+    > div {
+      color: #ffffff !important;
+      transition: color 1s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+  }
+}
+
+// Dark mode styles when parent has darkModeSection class
+:global(.darkModeSection) .legacyFuture_section {
+  background-color: #222423 !important;
+
+  .legacyFuture_text {
+    h2,
+    :global(.main_title) {
+      color: #ffffff !important;
+      transition: color 1s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+  }
+
+  .legacyFuture_description {
+    p,
+    > div {
+      color: #ffffff !important;
+      transition: color 1s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+  }
+}
+
+.header_content {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  padding-bottom: 80px;
+
+  @include max(1440) {
+    padding-bottom: 60px;
+  }
+
+  @include max(768) {
+    flex-direction: column;
+    gap: 30px;
+    padding-bottom: 40px;
+  }
+
+  @include max(480) {
+    padding-bottom: 30px;
+  }
+
+  h3 {
+    color: #00c48d;
+    font-size: 22px;
+    line-height: 1.2;
+    font-weight: 400;
+    width: 30%;
+    max-width: 384px;
+    @include max(768) {
+      width: 100%;
+      font-size: 18px;
+    }
+  }
+
+  // Wrapper div for description content
+  > div {
+    width: 70%;
+    @include max(768) {
+      width: 100%;
+    }
+  }
+
+  p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #222423;
+    @include max(1440) {
+      font-size: 14px;
+    }
+  }
+}
+
+.header_description {
+  p,
+  > div {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #222423;
+    margin-bottom: 20px;
+
+    @include max(1440) {
+      font-size: 14px;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.legacyFuture_content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+
+  @include max(1440) {
+    gap: 50px;
+  }
+
+  @include max(820) {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+}
+
+.legacyFuture_image {
+  position: relative;
+  overflow: hidden;
+  will-change: transform;
+  transform-origin: center center;
+  width: 100%;
+  min-height: 478px;
+
+  @include max(540) {
+    min-height: 280px;
+  }
+
+  img {
+    object-fit: cover;
+    @include max(820) {
+      object-position: right;
+    }
+  }
+}
+
+.legacyFuture_title {
+  line-height: 1.2;
+}
+
+.legacyFuture_green {
+  color: #00c48d;
+  font-size: 22px;
+  line-height: 24px;
+  font-weight: 400;
+  display: block;
+
+  @include max(1440) {
+    font-size: 20px;
+  }
+
+  @include max(768) {
+    font-size: 18px;
+  }
+
+  @include max(480) {
+    font-size: 16px;
+  }
+}
+
+.legacyFuture_red {
+  color: #e40032;
+  font-size: 28px;
+  font-weight: 700;
+  display: block;
+
+  @include max(768) {
+    font-size: 24px;
+  }
+
+  @include max(480) {
+    font-size: 20px;
+  }
+}
+
+.legacyFuture_description {
+  p,
+  > div {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 20px;
+    transition: color 2.5s cubic-bezier(0.4, 0, 0.2, 1);
+
+    @include max(1440) {
+      font-size: 14px;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.green_triangle {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-top: 200px solid #00C48D;
+  border-left: 200px solid transparent;
+  z-index: 1;
+
+  @include max(1440) {
+    border-top: 180px solid #00C48D;
+    border-left: 180px solid transparent;
+  }
+
+  @include max(1024) {
+    border-top: 100px solid #00C48D;
+    border-left: 100px solid transparent;
+  }
+
+  @include max(820) {
+    border-top: 70px solid #00C48D;
+    border-left: 70px solid transparent;
+  }
+
+  @include max(600) {
+    border-top: 50px solid #00C48D;
+    border-left: 50px solid transparent;
+  }
+}
+
+.red_traingle {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-right: 180px solid transparent;
+  border-bottom: 180px solid rgba(168, 0, 37, 0.8);
+
+  @include max(768) {
+    border-right: 100px solid transparent;
+    border-bottom: 100px solid rgba(168, 0, 37, 0.8);
+  }
+}

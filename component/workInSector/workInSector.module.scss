@@ -1,0 +1,185 @@
+@import "@/styles/mixins";
+
+.work_sectors_section {
+	background-color: #f5f4f1;
+	position: relative;
+	overflow: hidden;
+}
+
+.main_title {
+	font-size: 2.5rem;
+	font-weight: bold;
+	color: #d32f2f;
+	margin-bottom: 3rem;
+	text-align: left;
+}
+
+.sectors_grid {
+	max-width: 100%;
+	// margin-block: 40px 0px;
+	margin-inline: auto;
+
+	.swiper {
+		width: 100%;
+		height: 100%;
+		padding-bottom: 1rem;
+	}
+
+	.swiper_slide {
+		height: auto;
+		display: flex;
+
+		> div {
+			display: flex;
+			height: 100%;
+			width: 100%;
+		}
+	}
+}
+
+.sector_card {
+	background: white;
+	border-radius: 8px;
+	padding: 2rem 12px;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	height: 100%;
+	justify-content: space-between;
+	flex-shrink: 0;
+	width: 100%;
+	gap: 5px;
+	transition: all 0.3s ease;
+	border:1px solid transparent;
+
+	.sector_name_container {
+		min-height: 60px;
+
+		@include max(768) {
+			min-height: 30px;
+		}
+	}
+
+	img {
+		min-height: 60px;
+	}
+
+	&.active {
+		border:1px solid #e40032;
+	}
+	&:hover {
+		border:1px solid #e40032;
+	}
+}
+
+.sector_icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 80px;
+	height: 80px;
+	border: 2px solid #d32f2f;
+	border-radius: 50%;
+	background: rgba(211, 47, 47, 0.05);
+}
+
+.sector_name {
+	font-size: 16px;
+	font-weight: 400;
+	color: #222423;
+	margin-block: 12px;
+	line-height: 16px;
+	text-align: left;
+
+	@include max(768) {
+		font-size: 14px;
+		line-height: 14px;
+		margin-block: 5px;
+	}
+}
+
+.learn_more_btn {
+	background-color: #d32f2f;
+	color: white;
+	border: none;
+	padding: 12px 24px;
+	border-radius: 4px;
+	font-weight: 600;
+	font-size: 0.9rem;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+
+	&:hover {
+		background-color: #b71c1c;
+	}
+}
+
+.decorative_triangle_left {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 0;
+	height: 0;
+	border-bottom: 100px solid #e40032;
+	border-right: 100px solid transparent;
+	z-index: 1;
+}
+
+.decorative_triangle_right {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 0;
+	height: 0;
+	border-top: 100px solid #00C48D;
+	border-left: 100px solid transparent;
+	z-index: 1;
+}
+
+// Responsive design
+@media (max-width: 768px) {
+	.sectors_grid {
+		gap: 1rem;
+	}
+
+	.main_title {
+		font-size: 2rem;
+		margin-bottom: 2rem;
+	}
+
+	.sector_card {
+		padding: 1.5rem 1rem;
+	}
+
+	.sector_icon {
+		font-size: 2.5rem;
+		width: 60px;
+		height: 60px;
+	}
+
+	.decorative_triangle_left,
+	.decorative_triangle_right {
+		display: none;
+	}
+}
+
+@media (max-width: 540px) {
+	.sectors_grid {
+		gap: 20px;
+	}
+
+	.main_title {
+		font-size: 1.8rem;
+		text-align: center;
+	}
+
+	.sector_card {
+		padding: 1rem 0.8rem;
+		align-items: center;
+	}
+}

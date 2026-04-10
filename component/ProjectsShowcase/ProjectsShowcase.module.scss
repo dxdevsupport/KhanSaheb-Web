@@ -1,0 +1,170 @@
+@import "@/styles/mixins";
+
+.projectsShowcase {
+  background-color: #f5f4f1;
+  background-repeat: no-repeat;
+  background-position: left top;
+  background-size: contain;
+  transition: background-color 1s cubic-bezier(0.4, 0, 0.2, 1),
+    background-image 1s cubic-bezier(0.4, 0, 0.2, 1);
+
+  .headerSection {
+
+    .main_title {
+      margin-bottom: 20px;
+      color: #e4002b;
+    }
+    p {
+      max-width: 1050px;
+    }
+  }
+
+  .projectsSlider {
+    position: relative;
+
+    .swiperSlide {
+      height: auto;
+      background: #222423;
+      transition: all 0.3s ease;
+      &:hover {
+        background: #e40032;
+      }
+    }
+
+    // Custom Navigation Buttons
+    .swiperButtonPrev,
+    .swiperButtonNext {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 50px;
+      height: 50px;
+      background: #ffffff;
+      border: 2px solid #e4002b;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 10;
+      transition: all 0.3s ease;
+      color: #e4002b;
+
+      &:hover {
+        background: #e4002b;
+        color: #ffffff;
+        transform: translateY(-50%) scale(1.1);
+      }
+
+      &:after {
+        display: none;
+      }
+
+      svg {
+        width: 20px;
+        height: 20px;
+      }
+    }
+
+    .swiperButtonPrev {
+      left: 0;
+
+      @include max(768) {
+        left: 10px;
+      }
+    }
+
+    .swiperButtonNext {
+      right: 0;
+
+      @include max(768) {
+        right: 10px;
+      }
+    }
+
+    // Custom Pagination
+    .swiperPagination {
+      position: relative;
+      margin-top: 30px;
+      text-align: center;
+
+      :global(.swiper-pagination-bullet) {
+        width: 12px;
+        height: 12px;
+        background: #ddd;
+        opacity: 1;
+        margin: 0 6px;
+        transition: all 0.3s ease;
+
+        &:global(.swiper-pagination-bullet-active) {
+          background: #e4002b;
+          transform: scale(1.2);
+        }
+      }
+    }
+  }
+
+  .buttonSection {
+    text-align: center;
+    margin-top: 56px;
+
+    @media (max-width: 1200px) {
+      margin-top: 40px;
+    }
+
+    .viewProjectsButton {
+      display: inline-block;
+      background: #e4002b;
+      color: #ffffff;
+      padding: 15px 40px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+      border: 2px solid #e4002b;
+
+      &:hover {
+        background: transparent;
+        color: #e4002b;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(228, 0, 43, 0.3);
+      }
+
+      @include max(768) {
+        font-size: 14px;
+        padding: 12px 30px;
+      }
+
+      @include max(480) {
+        padding: 10px 25px;
+        font-size: 13px;
+      }
+    }
+    @include max(768) {
+      margin-top: 38px;
+    }
+
+    @include max(480) {
+      margin-top: 20px;
+    }
+  }
+
+
+  @include max(480) {
+    .projectsSlider {
+      .swiperButtonPrev,
+      .swiperButtonNext {
+        width: 40px;
+        height: 40px;
+
+        svg {
+          width: 16px;
+          height: 16px;
+        }
+      }
+    }
+  }
+}

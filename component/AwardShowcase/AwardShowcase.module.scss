@@ -1,0 +1,140 @@
+@import "@/styles/mixins";
+
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap:15px;
+  min-height:600px;
+  align-items: flex-start;
+
+  @include max(1024) {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+.leftSection {
+  padding:50px 65px;
+  padding-left:calc((100% - (585px - 1.5rem)) / 2);
+  display: flex;
+  align-items: center;
+  position: relative;
+  background-color: #E40032;
+  height: 100%;
+  @include max(1024) {
+    padding: 60px 40px;
+  }
+
+  @include max(768) {
+    padding: 40px 20px;
+  }
+}
+
+.textContent {
+    p{
+        color: #ffffff;
+        span{
+            display:block;
+            font-weight: 500;
+            margin-top: 20px;
+            font-size: 22px;
+        }
+    }
+}
+
+.main_title {
+  margin: 0 0 20px 0;
+  color: #ffffff;
+
+  @include max(768) {
+    font-size: 36px;
+  }
+
+  @include max(480) {
+    font-size: 28px;
+  }
+}
+
+
+.awardTitle {
+  font-size: 20px;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0;
+
+  @include max(768) {
+    font-size: 18px;
+  }
+}
+
+.rightSection {
+  background-color: #f8f8f8;
+  padding: 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imageContainer {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @include max(1024) {
+    height: 400px;
+  }
+
+  @include max(768) {
+    height: 300px;
+  }
+}
+
+.awardImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0;
+}
+
+.greenAccent {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 0;
+  height: 0;
+  border-right: 200px solid #00C48D;
+  border-bottom: 200px solid transparent;
+  z-index: 2;
+
+  @include max(768) {
+    top: 15px;
+    right: 15px;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 20px solid #00A651;
+  }
+}
+
+// Responsive Design
+@include max(1024) {
+  .awardShowcaseSection {
+    padding: 100px 0;
+  }
+}
+
+@include max(768) {
+  .awardShowcaseSection {
+    padding: 80px 0;
+  }
+}
+
+@include max(480) {
+  .awardShowcaseSection {
+    padding: 60px 0;
+  }
+}

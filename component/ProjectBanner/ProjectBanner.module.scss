@@ -1,0 +1,219 @@
+.projectBanner {
+  position: relative;
+  height: 580px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.backgroundImage {
+  position: absolute;
+  top: -50%;
+  left: 0;
+  width: 100%;
+  height: 200%;
+  z-index: 1;
+  will-change: transform;
+  transform-origin: center center;
+  // Extra height to prevent gaps during parallax movement and scaling
+}
+
+.bannerImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+      88.72deg,
+      rgba(0, 0, 0, 0.7) 0%,
+      rgba(0, 0, 0, 0) 100%
+    ),
+    linear-gradient(to left, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+  z-index: 2;
+}
+
+.content {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.textContent {
+  max-width: 615px;
+  p {
+    color: #fff;
+    font-weight: 300;
+    margin-bottom: 30px;
+
+    @media (max-width: 1024px) {
+      margin-bottom: 20px;
+    }
+  }
+}
+
+.title {
+  font-size: 50px;
+  font-weight: 500;
+  line-height: 1.1;
+  margin-bottom: 15px;
+  color: white;
+}
+
+.description {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  color: white;
+}
+
+.viewButton {
+  display: inline-block;
+  background: #e4002b;
+  color: white;
+  padding: 15px 30px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  font-family: "MadaniArabic", sans-serif;
+
+  &:hover {
+    background: #c40025;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(228, 0, 43, 0.3);
+  }
+}
+
+.greenTriangle {
+  border-bottom: 170px solid #00c48d;
+  border-right: 170px solid transparent;
+}
+
+.redTriangle {
+  border-bottom: 381px solid rgba(168, 0, 37, 0.7);
+  border-left: 381px solid transparent;
+  z-index: 4;
+}
+
+@media (max-width: 1440px) {
+  .redTriangle {
+    border-bottom: 200px solid rgba(168, 0, 37, 0.7);
+    border-left: 200px solid transparent;
+  }
+
+  .title {
+    font-size: 46px;
+  }
+}
+
+// Responsive Design
+@media (max-width: 1024px) {
+  .projectBanner {
+    height: 500px;
+	background-attachment: scroll;
+  }
+
+  .title {
+    font-size: 32px;
+  }
+
+  .description {
+    font-size: 16px;
+  }
+
+  .greenTriangle {
+    border-right: 100px solid transparent;
+    border-left: 100px solid transparent;
+    border-bottom: 100px solid;
+  }
+
+  .redTriangle {
+    border-bottom: 270px solid rgba(168, 0, 37, 0.7);
+    border-left: 270px solid transparent;
+  }
+}
+
+@media (max-width: 768px) {
+  .projectBanner {
+    height: 450px;
+  }
+
+  .textContent {
+    max-width: 100%;
+  }
+
+  .title {
+    font-size: 36px;
+    margin-bottom: 15px;
+  }
+
+  .description {
+    font-size: 15px;
+    margin-bottom: 25px;
+  }
+
+  .viewButton {
+    padding: 12px 25px;
+    font-size: 14px;
+  }
+
+  .greenTriangle {
+    border-right: 80px solid transparent;
+    border-left: 80px solid transparent;
+    border-bottom: 80px solid;
+  }
+
+  .redTriangle {
+    border-bottom: 200px solid rgba(168, 0, 37, 0.7);
+    border-left: 200px solid transparent;
+  }
+}
+
+@media (max-width: 480px) {
+  .projectBanner {
+    height: 400px;
+  }
+
+  .title {
+    font-size: 28px;
+  }
+
+  .description {
+    font-size: 14px;
+  }
+
+  .viewButton {
+    padding: 10px 20px;
+    font-size: 13px;
+  }
+
+  .greenTriangle {
+    border-right: 60px solid transparent;
+    border-left: 60px solid transparent;
+    border-bottom: 60px solid;
+  }
+
+  .redTriangle {
+    border-bottom: 100px solid rgba(168, 0, 37, 0.7);
+    border-left: 100px solid transparent;
+  }
+}

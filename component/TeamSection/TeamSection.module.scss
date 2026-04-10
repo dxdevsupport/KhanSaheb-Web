@@ -1,0 +1,296 @@
+.teamSection {
+  padding: 120px 0;
+  background-color: #ffffff;
+  position: relative;
+}
+
+.headerSection {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  margin-bottom: 80px;
+  align-items: start;
+}
+
+.headerLeft {
+  .mainTitle {
+    font-size: 48px;
+    font-weight: 700;
+    color: #E4002B;
+    margin: 0;
+    font-family: 'MadaniArabic', sans-serif;
+    line-height: 1.2;
+  }
+}
+
+.headerRight {
+  position: relative;
+  
+  .description {
+    font-size: 18px;
+    line-height: 28px;
+    color: #333333;
+    margin: 0;
+    font-family: 'MadaniArabic', sans-serif;
+    max-width: 500px;
+  }
+  
+  .greenAccent {
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    width: 60px;
+    height: 60px;
+    background: #00C48D;
+    transform: rotate(45deg);
+    z-index: 1;
+  }
+}
+
+.teamGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.teamCard {
+  background: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  }
+}
+
+.cardImage {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  background: #f5f5f5;
+  overflow: hidden;
+  
+  .memberImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  
+  &:hover .memberImage {
+    transform: scale(1.05);
+  }
+}
+
+.cardFooter {
+  background: #E4002B;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 80px;
+}
+
+.memberInfo {
+  flex: 1;
+  
+  .memberPosition {
+    font-size: 14px;
+    color: #ffffff;
+    margin: 0 0 5px 0;
+    font-family: 'MadaniArabic', sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  .memberName {
+    font-size: 18px;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0;
+    font-family: 'MadaniArabic', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+}
+
+.arrowIcon {
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  
+  &:hover {
+    background: rgba(255, 255, 255, 0.3);
+  }
+  
+  svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+// Responsive Design
+@media (max-width: 1024px) {
+  .teamSection {
+    padding: 100px 0;
+  }
+  
+  .headerSection {
+    gap: 40px;
+    margin-bottom: 60px;
+  }
+  
+  .headerLeft .mainTitle {
+    font-size: 42px;
+  }
+  
+  .headerRight .description {
+    font-size: 16px;
+    line-height: 26px;
+  }
+  
+  .teamGrid {
+    gap: 25px;
+  }
+}
+
+@media (max-width: 768px) {
+  .teamSection {
+    padding: 80px 0;
+  }
+  
+  .headerSection {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    margin-bottom: 50px;
+  }
+  
+  .headerLeft .mainTitle {
+    font-size: 36px;
+  }
+  
+  .headerRight {
+    .description {
+      font-size: 15px;
+      line-height: 24px;
+    }
+    
+    .greenAccent {
+      width: 40px;
+      height: 40px;
+      top: -15px;
+      right: -15px;
+    }
+  }
+  
+  .teamGrid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .teamCard {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .cardImage {
+    height: 250px;
+  }
+  
+  .cardFooter {
+    padding: 15px;
+    min-height: 70px;
+  }
+  
+  .memberInfo {
+    .memberPosition {
+      font-size: 13px;
+    }
+    
+    .memberName {
+      font-size: 16px;
+    }
+  }
+  
+  .arrowIcon {
+    width: 35px;
+    height: 35px;
+    
+    svg {
+      width: 14px;
+      height: 14px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .teamSection {
+    padding: 60px 0;
+  }
+  
+  .headerSection {
+    gap: 25px;
+    margin-bottom: 40px;
+  }
+  
+  .headerLeft .mainTitle {
+    font-size: 28px;
+  }
+  
+  .headerRight {
+    .description {
+      font-size: 14px;
+      line-height: 22px;
+    }
+    
+    .greenAccent {
+      width: 30px;
+      height: 30px;
+      top: -10px;
+      right: -10px;
+    }
+  }
+  
+  .teamGrid {
+    gap: 15px;
+  }
+  
+  .cardImage {
+    height: 200px;
+  }
+  
+  .cardFooter {
+    padding: 12px;
+    min-height: 60px;
+  }
+  
+  .memberInfo {
+    .memberPosition {
+      font-size: 12px;
+    }
+    
+    .memberName {
+      font-size: 14px;
+    }
+  }
+  
+  .arrowIcon {
+    width: 30px;
+    height: 30px;
+    
+    svg {
+      width: 12px;
+      height: 12px;
+    }
+  }
+}

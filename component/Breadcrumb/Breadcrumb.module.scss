@@ -1,0 +1,105 @@
+@import "@/styles/mixins";
+@import "@/styles/variable";
+
+.breadcrumb {
+  padding: 30px 0;
+}
+
+.darkBackground {
+  background-color: #222423;
+}
+
+.breadcrumbList {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  line-height: 1.4;
+  gap: 0px;
+  flex-wrap: wrap;
+  img {
+    display: block;
+  }
+}
+
+.breadcrumbItem {
+  display: flex;
+  align-items: center;
+  line-height: 1;
+
+  // &:not(:first-child) {
+  //   margin-left: 12px;
+
+  //   @include max(768) {
+  //     margin-left: 8px;
+  //   }
+  // }
+  .separator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    flex-shrink: 0;
+    margin-right: 10px;
+    // margin-top: 3px;
+    @include max(768) {
+      margin-right: 4px;
+    }
+
+    @include max(400) {
+      margin-right: 2px;
+    }
+
+    img {
+      display: block;
+    }
+    svg {
+      display: block;
+      flex-shrink: 0;
+      position: relative;
+      top: 0.5px; // Fine-tune vertical alignment
+
+      @include max(768) {
+        top: 0;
+        height: 12px;
+        width: 12px;
+      }
+    }
+  }
+}
+
+.breadcrumbLink {
+  color: #7d7e7d;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  font-size: 14px;
+  font-weight: 400;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  line-height: 1;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 1px;
+  margin-right: 10px;
+  // padding-bottom: 5px;
+
+  span {
+    display: inline-block;
+    line-height: 1;
+    margin: 0;
+    padding: 0;
+  }
+
+  &:hover {
+    color: #666666;
+  }
+
+  @include max(768) {
+    font-size: 12px;
+    padding-bottom: 1px;
+    margin-right: 4px;
+  }
+}

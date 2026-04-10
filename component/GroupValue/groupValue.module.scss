@@ -1,0 +1,161 @@
+@import "@/styles/mixins";
+@import "@/styles/variable";
+
+.header_container {
+  background-color: #ffffff;
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  transition: background-color 1.8s cubic-bezier(0.25, 0.1, 0.25, 1);
+
+  @media #{$media-768} {
+    min-height: auto;
+  }
+}
+
+.darkTitle {
+  color: #ffffff !important;
+  transition: color 2.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.content_grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: stretch;
+  width: 100%;
+
+  @media #{$media-1024} {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  @media #{$media-480} {
+    gap: 24px;
+  }
+}
+
+.image_section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.group_image {
+  width: 100%;
+  height: 620px;
+  object-fit: cover;
+
+  @media #{$media-1200} {
+    height: 500px;
+  }
+
+  @media #{$media-768} {
+    max-width: 100%;
+    height: 320px;
+  }
+}
+
+.values_section {
+  display: flex;
+  flex-direction: column;
+
+  @media #{$media-768} {
+    order: 1;
+  }
+}
+
+.values_container {
+  max-height: 620px;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  /* Hide scrollbar */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+
+  &::-webkit-scrollbar {
+    display: none; /* WebKit */
+  }
+
+  @media #{$media-1200} {
+    height: 500px;
+  }
+
+  @media #{$media-768} {
+    max-width: 100%;
+    height: 320px;
+  }
+}
+
+.icon_container {
+  position: relative;
+  width: 82px;
+  height: 82px;
+
+  img {
+    object-fit: contain;
+  }
+
+  @media #{$media-768} {
+    width: 48px;
+    height: 48px;
+  }
+}
+
+.value_card {
+  display: flex;
+  align-items: center;
+  gap:45px;
+  padding: 32px;
+  margin-bottom: 8px;
+  color: white;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  // &:hover {
+  //   transform: translateY(-2px);
+  //   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  // }
+
+    @media #{$media-768} {
+        gap: 30px;
+        padding:20px;
+    }
+
+  @media #{$media-480} {
+    padding: 20px;
+    margin-bottom: 12px;
+  }
+}
+
+.value_content {
+  flex: 1;
+}
+
+.value_title {
+  font-size: 25px;
+    font-family: var(--font-family);
+  font-weight: 400;
+  margin: 0 0 8px 0;
+  line-height: 1.3;
+  color: #ffffff;
+
+  @media #{$media-768} {
+    font-size: 18px;
+  }
+}
+
+.value_description {
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 0;
+  opacity: 0.95;
+  color: #ffffff;
+  margin-bottom:20px;
+
+  @media #{$media-1440} {
+    font-size: 14px;
+    margin-bottom: 0px;
+  }
+}
